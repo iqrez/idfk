@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "LastSaved": "2025-09-23T20:33:09.7401104Z",
+  "FormState": {
+    "Width": 950,
+    "Height": 800,
+    "X": 613,
+    "Y": 70,
+    "Maximized": false
+  },
+  "SelectedTabIndex": 0,
+  "DisplayPrefs": {
+    "TelemetryDisplayMode": "All",
+    "SimulationDisplayMode": "Input \u0026 Output",
+    "TelemetryAutoScale": true,
+    "ShowGrid": true,
+    "ShowCrosshair": true
+  },
+  "RecentPatterns": [],
+  "UserPrefs": null
+}

@@ -1,0 +1,37 @@
+using System;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+using WootMouseRemap.Core;
+using System.Text.Json;
+// Logger is in WootMouseRemap namespace
+using WootMouseRemap.Features;
+using WootMouseRemap.UI;
+using WootMouseRemap.Input;
+using WootMouseRemap.Security;
+
+namespace WootMouseRemap
+{
+    public sealed partial class OverlayForm : Form
+    {
+        private const string BackgroundImageFile = "sinon_bunny_fixed - Copy.png";
+        private const string SourceAbsoluteImagePath = @"C:\Users\IQRez.YUI\Downloads\sinon_bunny_fixed - Copy.png";
+        private Image? _bgImage;
+
+        private readonly WootMouseRemap.Input.RawInputService _rawService = new();
+        private MouseButtons _previousMouseButtons = MouseButtons.None;
+
+        private readonly Xbox360ControllerWrapper _pad = new();
+        private readonly StickMapper _mapper = new();
+        private readonly ProfileManager _profiles = new();
+        private readonly Telemetry _telemetry = new();
+        private readonly AntiRecoil _antiRecoil = new();
+
+        private readonly System.Windows.Forms.Timer _uiRefresh = new() { Interval = 33 }; // ~30 FPS
+        private readonly System.Windows.Forms.Timer _updateTimer = new() { Interval = 16 }; // ~60 FPS
+
+        private volatile string _status = "";
+        private volatile bool _disposedFlag;
+        private volatile bool _overlayHidden;
+    }
+}
