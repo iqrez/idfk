@@ -1,0 +1,17 @@
+[Thread] 2025-09-23 16:33:33Z
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'RawInputService'.
+   at WootMouseRemap.Input.RawInputService.EnsureNotDisposed() in v:\u\a\WootMouseRemap.Core\Input\RawInputService.cs:line 127
+   at WootMouseRemap.Input.RawInputService.HandleMessage(Message& m) in v:\u\a\WootMouseRemap.Core\Input\RawInputService.cs:line 67
+   at WootMouseRemap.OverlayForm.WndProc(Message& m) in v:\u\a\WootMouseRemap.UI\OverlayForm.cs:line 76
+   at System.Windows.Forms.NativeWindow.Callback(HWND hWnd, MessageId msg, WPARAM wparam, LPARAM lparam)
+
+[Thread] 2025-09-23 16:35:46Z
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'RawInputService'.
+   at WootMouseRemap.Input.RawInputService.EnsureNotDisposed() in v:\u\a\WootMouseRemap.Core\Input\RawInputService.cs:line 127
+   at WootMouseRemap.Input.RawInputService.HandleMessage(Message& m) in v:\u\a\WootMouseRemap.Core\Input\RawInputService.cs:line 67
+   at WootMouseRemap.OverlayForm.WndProc(Message& m) in v:\u\a\WootMouseRemap.UI\OverlayForm.cs:line 77
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(HWND hWnd, MessageId msg, WPARAM wparam, LPARAM lparam)
+
