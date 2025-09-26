@@ -1,0 +1,5 @@
+v:\u\a\Tests\obj\Debug\net8.0-windows\WootMouseRemap.Tests.csproj.AssemblyReference.cache
+v:\u\a\Tests\obj\Debug\net8.0-windows\WootMouseRemap.Tests.GeneratedMSBuildEditorConfig.editorconfig
+v:\u\a\Tests\obj\Debug\net8.0-windows\WootMouseRemap.Tests.AssemblyInfoInputs.cache
+v:\u\a\Tests\obj\Debug\net8.0-windows\WootMouseRemap.Tests.AssemblyInfo.cs
+v:\u\a\Tests\obj\Debug\net8.0-windows\WootMouseRemap.Tests.csproj.CoreCompileInputs.cache

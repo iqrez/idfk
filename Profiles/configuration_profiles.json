@@ -1,0 +1,179 @@
+{
+  "Default": {
+    "Name": "Default",
+    "Description": "General purpose anti-recoil configuration",
+    "CreatedUtc": "2025-09-26T21:11:39.8242559Z",
+    "LastModifiedUtc": "2025-09-26T21:11:39.8242562Z",
+    "LastUsedUtc": null,
+    "Settings": {
+      "Enabled": false,
+      "Strength": 0.5,
+      "VerticalThreshold": 2,
+      "ActivationDelayMs": 0,
+      "HorizontalCompensation": 0,
+      "AdaptiveCompensation": false,
+      "MaxTickCompensation": 10,
+      "MaxTotalCompensation": 100,
+      "CooldownMs": 0,
+      "DecayPerMs": 0
+    },
+    "AssociatedPatterns": [],
+    "Metadata": {
+      "ConfigVersion": 2
+    },
+    "WasdToLeftStick": true,
+    "KeyMap": {
+      "32": 0,
+      "160": 8,
+      "162": 9,
+      "82": 2,
+      "70": 3,
+      "9": 13,
+      "27": 12
+    },
+    "MouseMap": {
+      "Left": 11,
+      "Right": 10,
+      "Middle": 1,
+      "XButton1": 2,
+      "XButton2": 3,
+      "ScrollUp": 4,
+      "ScrollDown": 5
+    },
+    "PreferredXInputIndex": 0,
+    "Curves": {
+      "Acceleration": 1,
+      "Deceleration": 1,
+      "Sensitivity": 1,
+      "Deadzone": 0,
+      "MaxOutput": 1,
+      "MinOutput": 0,
+      "CurveExponent": 1,
+      "UseCurve": false,
+      "Expo": 0,
+      "AntiDeadzone": 0,
+      "EmaAlpha": 0.5,
+      "ScaleX": 1,
+      "ScaleY": 1
+    },
+    "MouseDpi": 1600
+  },
+  "CS2": {
+    "Name": "CS2",
+    "Description": "Optimized for Counter-Strike 2",
+    "CreatedUtc": "2025-09-26T21:11:39.8242966Z",
+    "LastModifiedUtc": "2025-09-26T21:11:39.8242967Z",
+    "LastUsedUtc": null,
+    "Settings": {
+      "Enabled": false,
+      "Strength": 0.65,
+      "VerticalThreshold": 3,
+      "ActivationDelayMs": 0,
+      "HorizontalCompensation": 0.2,
+      "AdaptiveCompensation": true,
+      "MaxTickCompensation": 8,
+      "MaxTotalCompensation": 120,
+      "CooldownMs": 50,
+      "DecayPerMs": 0.1
+    },
+    "AssociatedPatterns": [],
+    "Metadata": {
+      "ConfigVersion": 2
+    },
+    "WasdToLeftStick": true,
+    "KeyMap": {
+      "32": 0,
+      "160": 8,
+      "162": 9,
+      "82": 2,
+      "70": 3,
+      "9": 13,
+      "27": 12
+    },
+    "MouseMap": {
+      "Left": 11,
+      "Right": 10,
+      "Middle": 1,
+      "XButton1": 2,
+      "XButton2": 3,
+      "ScrollUp": 4,
+      "ScrollDown": 5
+    },
+    "PreferredXInputIndex": 0,
+    "Curves": {
+      "Acceleration": 1,
+      "Deceleration": 1,
+      "Sensitivity": 1,
+      "Deadzone": 0,
+      "MaxOutput": 1,
+      "MinOutput": 0,
+      "CurveExponent": 1,
+      "UseCurve": false,
+      "Expo": 0,
+      "AntiDeadzone": 0,
+      "EmaAlpha": 0.5,
+      "ScaleX": 1,
+      "ScaleY": 1
+    },
+    "MouseDpi": 1600
+  },
+  "Valorant": {
+    "Name": "Valorant",
+    "Description": "Optimized for Valorant",
+    "CreatedUtc": "2025-09-26T21:11:39.8242978Z",
+    "LastModifiedUtc": "2025-09-26T21:11:39.8242979Z",
+    "LastUsedUtc": null,
+    "Settings": {
+      "Enabled": false,
+      "Strength": 0.4,
+      "VerticalThreshold": 2.5,
+      "ActivationDelayMs": 0,
+      "HorizontalCompensation": 0.15,
+      "AdaptiveCompensation": false,
+      "MaxTickCompensation": 6,
+      "MaxTotalCompensation": 80,
+      "CooldownMs": 0,
+      "DecayPerMs": 0.05
+    },
+    "AssociatedPatterns": [],
+    "Metadata": {
+      "ConfigVersion": 2
+    },
+    "WasdToLeftStick": true,
+    "KeyMap": {
+      "32": 0,
+      "160": 8,
+      "162": 9,
+      "82": 2,
+      "70": 3,
+      "9": 13,
+      "27": 12
+    },
+    "MouseMap": {
+      "Left": 11,
+      "Right": 10,
+      "Middle": 1,
+      "XButton1": 2,
+      "XButton2": 3,
+      "ScrollUp": 4,
+      "ScrollDown": 5
+    },
+    "PreferredXInputIndex": 0,
+    "Curves": {
+      "Acceleration": 1,
+      "Deceleration": 1,
+      "Sensitivity": 1,
+      "Deadzone": 0,
+      "MaxOutput": 1,
+      "MinOutput": 0,
+      "CurveExponent": 1,
+      "UseCurve": false,
+      "Expo": 0,
+      "AntiDeadzone": 0,
+      "EmaAlpha": 0.5,
+      "ScaleX": 1,
+      "ScaleY": 1
+    },
+    "MouseDpi": 1600
+  }
+}

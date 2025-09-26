@@ -1,0 +1,3 @@
+AllowUnsafeBlocks,ApplicationManifest,AssemblyName,ImplicitUsings,Nullable,RootNamespace,TargetFramework,UseWindowsForms,csproj
+true,app.manifest,WootMouseRemap,enable,enable,WootMouseRemap,net8.0-windows,true,WootMouseRemap.csproj
+,,,enable,enable,,net8.0-windows,true,Tests/WootMouseRemap.Tests.csproj
