@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="2c9ab7b8-8f10-4ac3-a935-e2efec42a62e" name="IQRez@YUI 2025-09-26 16:49:59" runUser="YUI\IQRez" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-09-26T16:49:59.8599667-04:00" queuing="2025-09-26T16:49:59.8599671-04:00" start="2025-09-26T16:49:59.5400527-04:00" finish="2025-09-26T16:52:44.1248938-04:00" />
+  <TestSettings name="default" id="8f774a97-6ed9-4c8c-b8e6-33d6c4a7f6ec">
+    <Deployment runDeploymentRoot="IQRez_YUI_2025-09-26_16_49_59" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="d7c4891d-efd1-457c-b8ce-1df33bf80580" testId="51666c0e-ad42-72e3-d760-0b8ba29dd0c9" testName="PatternTransforms_RemoveOutliers_ShouldFilterExtremeValues" computerName="YUI" duration="00:00:00.0012209" startTime="2025-09-26T16:49:59.8901527-04:00" endTime="2025-09-26T16:49:59.8914246-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d7c4891d-efd1-457c-b8ce-1df33bf80580" />
+    <UnitTestResult executionId="27883311-0eac-49a1-ab3c-c388a36611cf" testId="3b27c4a7-d06d-e8bd-f04b-0c5214a36800" testName="StickMapper_HandlesWASDCorrectly" computerName="YUI" duration="00:00:00.0057301" startTime="2025-09-26T16:49:59.8830942-04:00" endTime="2025-09-26T16:49:59.8888974-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="27883311-0eac-49a1-ab3c-c388a36611cf">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. </Message>
+          <StackTrace>   at WootMouseRemap.Tests.InputMappingTests.StickMapper_HandlesWASDCorrectly() in v:\u\a\WootMouseRemap.Tests\InputMappingTests.cs:line 114&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4e73278a-d4ad-4f36-83a6-dd7cc6b70811" testId="e14b0566-2258-4315-7f55-5118c64c3c22" testName="AdvancedAntiRecoilOverlayCompactForm_ShouldHandleMissingOverlayGracefully" computerName="YUI" duration="00:00:00.2513458" startTime="2025-09-26T16:49:59.9203551-04:00" endTime="2025-09-26T16:50:00.1718448-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e73278a-d4ad-4f36-83a6-dd7cc6b70811" />
+    <UnitTestResult executionId="d19576cd-c4d9-4c05-b3dd-2c189d3a402b" testId="b23f711b-ae6d-500b-2f04-f308bc91f8db" testName="AntiRecoil_MaxTotalCompensation_ShouldCapAccumulatedCompensation" computerName="YUI" duration="00:00:00.0107406" startTime="2025-09-26T16:49:59.8255999-04:00" endTime="2025-09-26T16:49:59.8379949-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d19576cd-c4d9-4c05-b3dd-2c189d3a402b">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.AntiRecoilTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\antirecoil_settings.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.DeleteFile(String fullPath)&#xD;
+   at WootMouseRemap.Tests.AntiRecoilTests.Setup() in v:\u\a\WootMouseRemap.Tests\AntiRecoilTests.cs:line 24&#xD;
+   at InvokeStub_AntiRecoilTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="97637b56-c4f8-414a-8a63-c33a8260d4d1" testId="57f07783-3c06-2abe-9b78-a4509d95e415" testName="ProfileService_CreatesGameProfiles" computerName="YUI" duration="00:00:00.0331960" startTime="2025-09-26T16:49:59.8550218-04:00" endTime="2025-09-26T16:49:59.8882687-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="97637b56-c4f8-414a-8a63-c33a8260d4d1" />
+    <UnitTestResult executionId="134dcc5a-790a-434c-90ba-fc9184efad91" testId="7177b414-ed19-095a-16c1-493859563ca2" testName="PatternTransforms_WithSingleSample_ShouldHandleGracefully" computerName="YUI" duration="00:00:00.0006465" startTime="2025-09-26T16:49:59.8917953-04:00" endTime="2025-09-26T16:49:59.8924932-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="134dcc5a-790a-434c-90ba-fc9184efad91" />
+    <UnitTestResult executionId="fab2c02f-0b95-43f8-b311-b6a96bb277c1" testId="6f9cea08-b875-04f6-858e-921a97bf121e" testName="ProfileService_LoadsDefaultProfile" computerName="YUI" duration="00:00:00.0335016" startTime="2025-09-26T16:49:59.8541828-04:00" endTime="2025-09-26T16:49:59.8877703-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fab2c02f-0b95-43f8-b311-b6a96bb277c1" />
+    <UnitTestResult executionId="4e12fc6e-f65e-443a-a0ec-6eb4aedd6e3e" testId="b070f649-966d-9030-bad0-701227ee93ad" testName="Detach_ShouldUnregisterDevice" computerName="YUI" duration="00:00:00.1211462" startTime="2025-09-26T16:49:59.8920884-04:00" endTime="2025-09-26T16:50:00.0133213-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e12fc6e-f65e-443a-a0ec-6eb4aedd6e3e" />
+    <UnitTestResult executionId="6604ff8b-d894-475c-955f-e9b87a296b0f" testId="55748898-834c-c294-1c69-ecebb43bf5ae" testName="BackupManager_RestoreBackupWithExistingTarget_ShouldCreatePreRestoreBackup" computerName="YUI" duration="00:00:00.0083065" startTime="2025-09-26T16:49:59.8409715-04:00" endTime="2025-09-26T16:49:59.8493672-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6604ff8b-d894-475c-955f-e9b87a296b0f">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method WootMouseRemap.Tests.BackupManagerTests.BackupManager_RestoreBackupWithExistingTarget_ShouldCreatePreRestoreBackup threw exception: &#xD;
+System.InvalidOperationException: Sequence contains no matching element</Message>
+          <StackTrace>   at System.Linq.ThrowHelper.ThrowNoMatchException()&#xD;
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)&#xD;
+   at WootMouseRemap.Tests.BackupManagerTests.BackupManager_RestoreBackupWithExistingTarget_ShouldCreatePreRestoreBackup() in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 194&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7613c58c-6871-44a9-ab40-35b82e92c54f" testId="b980327d-981e-01b1-142f-1508546e8388" testName="BackupManager_RestoreBackup_ShouldRestoreFileContent" computerName="YUI" duration="00:00:00.2243949" startTime="2025-09-26T16:49:59.8409575-04:00" endTime="2025-09-26T16:50:00.0654789-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7613c58c-6871-44a9-ab40-35b82e92c54f" />
+    <UnitTestResult executionId="e709f103-16eb-4f06-b1eb-5ae70c8ccf42" testId="00bae1c6-dd39-f179-a906-a8e1bd9aa39b" testName="FullBackupManifest_DefaultValues_ShouldBeCorrect" computerName="YUI" duration="00:00:00.2118278" startTime="2025-09-26T16:49:59.8494321-04:00" endTime="2025-09-26T16:50:00.0613452-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e709f103-16eb-4f06-b1eb-5ae70c8ccf42" />
+    <UnitTestResult executionId="11756b94-acc1-4f23-b937-3a2e8ad5079b" testId="4b48f8c3-d924-7083-86ae-7a0227564fed" testName="AntiRecoil_DefaultSettings_ShouldHaveValidDefaults" computerName="YUI" duration="00:00:00.0604656" startTime="2025-09-26T16:49:59.8125004-04:00" endTime="2025-09-26T16:49:59.8830420-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="11756b94-acc1-4f23-b937-3a2e8ad5079b" />
+    <UnitTestResult executionId="c8e524c1-1354-4f3c-b80a-e5db544adefb" testId="5ba22b9e-e035-b37e-a784-31929f07ea58" testName="AntiRecoil_EnabledWithZeroStrength_ShouldNotCompensate" computerName="YUI" duration="00:00:00.0607147" startTime="2025-09-26T16:49:59.8125335-04:00" endTime="2025-09-26T16:49:59.8832654-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8e524c1-1354-4f3c-b80a-e5db544adefb" />
+    <UnitTestResult executionId="46668349-9e69-4600-b25c-8a691a1011b7" testId="ae2e3d33-0526-1df9-296d-c65f04940726" testName="PatternTransforms_SmoothMovingAverage_ShouldReduceNoise" computerName="YUI" duration="00:00:00.0065991" startTime="2025-09-26T16:49:59.8874011-04:00" endTime="2025-09-26T16:49:59.8940961-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="46668349-9e69-4600-b25c-8a691a1011b7" />
+    <UnitTestResult executionId="c6c1829e-78f9-41c9-95db-f02f8c718506" testId="6cd1968d-ffda-81c7-64c4-0f9f4fe762e6" testName="PatternTransforms_WithEmptyPattern_ShouldHandleGracefully" computerName="YUI" duration="00:00:00.0001551" startTime="2025-09-26T16:49:59.8916923-04:00" endTime="2025-09-26T16:49:59.8919028-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c6c1829e-78f9-41c9-95db-f02f8c718506" />
+    <UnitTestResult executionId="cc3a0e86-0b49-45f7-9559-f36a2e027f12" testId="65ec1094-44d9-03a6-c8a1-71f9f9efeb80" testName="AntiRecoil_InvalidParameters_ShouldHandleGracefully" computerName="YUI" duration="00:00:00.0608275" startTime="2025-09-26T16:49:59.8125132-04:00" endTime="2025-09-26T16:49:59.8833715-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cc3a0e86-0b49-45f7-9559-f36a2e027f12" />
+    <UnitTestResult executionId="1c385189-fb97-4859-a0ff-57ed5d7c6b08" testId="832c60b2-c1b1-2232-07f4-5c598c8f151f" testName="ViewModel_IsDirty_ShouldTrackChanges" computerName="YUI" duration="00:00:00.0153868" startTime="2025-09-26T16:49:59.8971926-04:00" endTime="2025-09-26T16:49:59.9126461-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1c385189-fb97-4859-a0ff-57ed5d7c6b08" />
+    <UnitTestResult executionId="7f974fd5-4d35-45fb-a0c5-7cb9980bcd7b" testId="e61a1ac7-b206-f298-ccdb-f46b2d189601" testName="AntiRecoil_DecayOverTime_ShouldReduceAccumulatedCompensation" computerName="YUI" duration="00:00:00.1133337" startTime="2025-09-26T16:49:59.8124878-04:00" endTime="2025-09-26T16:49:59.9358947-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7f974fd5-4d35-45fb-a0c5-7cb9980bcd7b" />
+    <UnitTestResult executionId="1d29c89c-f0d9-4609-820c-90ba1c815b67" testId="c463be39-1ae2-f7be-36b0-f0c10cf71e63" testName="ProfileService_SavesAndLoadsProfile" computerName="YUI" duration="00:00:00.0330860" startTime="2025-09-26T16:49:59.8542103-04:00" endTime="2025-09-26T16:49:59.8873691-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1d29c89c-f0d9-4609-820c-90ba1c815b67">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsNotNull failed. </Message>
+          <StackTrace>   at WootMouseRemap.Tests.InputMappingTests.ProfileService_SavesAndLoadsProfile() in v:\u\a\WootMouseRemap.Tests\InputMappingTests.cs:line 66&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ab02bb92-68d5-467d-8db8-4f6176b5b59a" testId="49fff9b4-c79d-2e46-eb73-10194794d2d2" testName="ViewModel_Reset_ShouldRestoreDefaults" computerName="YUI" duration="00:00:00.0103102" startTime="2025-09-26T16:49:59.9101549-04:00" endTime="2025-09-26T16:49:59.9205359-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab02bb92-68d5-467d-8db8-4f6176b5b59a" />
+    <UnitTestResult executionId="91a39664-48a9-4441-9f39-63311e26ade8" testId="163712f4-8294-cd0c-7833-44c36098b2e1" testName="PatternTransforms_Trim_ShouldRemoveLeadingAndTrailingZeros" computerName="YUI" duration="00:00:00.0012526" startTime="2025-09-26T16:49:59.8890373-04:00" endTime="2025-09-26T16:49:59.8903503-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="91a39664-48a9-4441-9f39-63311e26ade8" />
+    <UnitTestResult executionId="8a21bd6d-67a0-4c00-b685-0425ab2bab33" testId="539b4935-a82c-e2a7-a0c5-b852e6af2371" testName="AntiRecoil_PatternRecording_ShouldCaptureMovements" computerName="YUI" duration="00:00:00.0107709" startTime="2025-09-26T16:49:59.8255620-04:00" endTime="2025-09-26T16:49:59.8379635-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a21bd6d-67a0-4c00-b685-0425ab2bab33">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.AntiRecoilTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\antirecoil_settings.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.DeleteFile(String fullPath)&#xD;
+   at WootMouseRemap.Tests.AntiRecoilTests.Setup() in v:\u\a\WootMouseRemap.Tests\AntiRecoilTests.cs:line 24&#xD;
+   at InvokeStub_AntiRecoilTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="74d5678d-eca1-4345-b5bb-cff4814c1df0" testId="430f71ca-d5bd-4b1a-803a-f7dadaa70cd8" testName="BackupManager_CreateSettingsBackup_ShouldCreateBackupFile" computerName="YUI" duration="00:00:00.0109914" startTime="2025-09-26T16:49:59.8255723-04:00" endTime="2025-09-26T16:49:59.8380092-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="74d5678d-eca1-4345-b5bb-cff4814c1df0">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.BackupManagerTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'settings_backup_20250926_164819.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.RemoveDirectoryRecursive(String fullPath, WIN32_FIND_DATA&amp; findData, Boolean topLevel)&#xD;
+   at System.IO.FileSystem.RemoveDirectory(String fullPath, Boolean recursive)&#xD;
+   at WootMouseRemap.Tests.BackupManagerTests.CleanupBackupDirectoryWithRetry(Int32 maxRetries) in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 75&#xD;
+   at WootMouseRemap.Tests.BackupManagerTests.Setup() in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 30&#xD;
+   at InvokeStub_BackupManagerTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="042cd5ac-4886-4a62-8db0-2b94f76b37e5" testId="d12bff1a-1bc5-4c12-e027-156fe7f24159" testName="BackupManager_DeleteBackup_ShouldRemoveBackupFile" computerName="YUI" duration="00:00:00.0055058" startTime="2025-09-26T16:49:59.8466360-04:00" endTime="2025-09-26T16:49:59.8522324-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="042cd5ac-4886-4a62-8db0-2b94f76b37e5" />
+    <UnitTestResult executionId="725faec8-e59b-4a75-9e56-14438851f654" testId="404e45f0-88b3-b698-bcad-5ed487534579" testName="InputOrchestrator_ProcessesEventsCorrectly" computerName="YUI" duration="00:00:00.0889682" startTime="2025-09-26T16:49:59.8833915-04:00" endTime="2025-09-26T16:49:59.9724207-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="725faec8-e59b-4a75-9e56-14438851f654" />
+    <UnitTestResult executionId="f16e30e6-3e33-4549-bd59-a8870301f22f" testId="d73515be-db9e-0865-95a9-c29bb0dde84d" testName="ViewModel_ApplyToNullAntiRecoil_ShouldNotThrow" computerName="YUI" duration="00:00:00.0073471" startTime="2025-09-26T16:49:59.9128532-04:00" endTime="2025-09-26T16:49:59.9202936-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f16e30e6-3e33-4549-bd59-a8870301f22f" />
+    <UnitTestResult executionId="bc814a03-559c-480c-939f-ecc4981f5a29" testId="332af98d-d8d8-9a6e-6f26-b4acf0a06357" testName="CompactFormKeyboardShortcuts_ShouldBeDefined" computerName="YUI" duration="00:00:00.1926440" startTime="2025-09-26T16:49:59.9359580-04:00" endTime="2025-09-26T16:50:00.1286842-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bc814a03-559c-480c-939f-ecc4981f5a29" />
+    <UnitTestResult executionId="1f5083b2-a5a0-425a-953e-7979b200247b" testId="0242d2fc-2093-8298-99dc-bfb83b7f352a" testName="AntiRecoil_HorizontalCompensation_ShouldCompensateHorizontalMovement" computerName="YUI" duration="00:00:00.0107340" startTime="2025-09-26T16:49:59.8256104-04:00" endTime="2025-09-26T16:49:59.8380083-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1f5083b2-a5a0-425a-953e-7979b200247b">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.AntiRecoilTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\antirecoil_settings.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.DeleteFile(String fullPath)&#xD;
+   at WootMouseRemap.Tests.AntiRecoilTests.Setup() in v:\u\a\WootMouseRemap.Tests\AntiRecoilTests.cs:line 24&#xD;
+   at InvokeStub_AntiRecoilTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0eb2286a-e931-45e9-843f-7a5e58f9f000" testId="f6085956-fc72-c124-2703-f41318b2a8c2" testName="ViewModel_PropertyChanged_ShouldFireForAllProperties" computerName="YUI" duration="00:00:00.0136714" startTime="2025-09-26T16:49:59.8958908-04:00" endTime="2025-09-26T16:49:59.9096294-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0eb2286a-e931-45e9-843f-7a5e58f9f000" />
+    <UnitTestResult executionId="890169ee-9dc0-4342-90ad-d089f523792e" testId="09892e59-0003-cf87-cc0b-77dc71270c2a" testName="PatternTransforms_Normalize_WithZeroPeak_ShouldReturnOriginal" computerName="YUI" duration="00:00:00.0026210" startTime="2025-09-26T16:49:59.8873984-04:00" endTime="2025-09-26T16:49:59.8901256-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="890169ee-9dc0-4342-90ad-d089f523792e" />
+    <UnitTestResult executionId="8b3162b2-f695-40ae-8346-e758f71c104f" testId="df7a0bed-6371-a294-fe35-5e99c77d80c7" testName="ViewModel_ApplyTo_ShouldUpdateAntiRecoilSettings" computerName="YUI" duration="00:00:00.0161272" startTime="2025-09-26T16:49:59.8972116-04:00" endTime="2025-09-26T16:49:59.9133981-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8b3162b2-f695-40ae-8346-e758f71c104f" />
+    <UnitTestResult executionId="1c7ffc96-30da-43bc-b049-ebfe6c5c6615" testId="88da0627-81e8-4907-d492-a12c9b498796" testName="ViewModel_PropertyValidation_ShouldEnforceConstraints" computerName="YUI" duration="00:00:00.0025605" startTime="2025-09-26T16:49:59.9101177-04:00" endTime="2025-09-26T16:49:59.9127939-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1c7ffc96-30da-43bc-b049-ebfe6c5c6615" />
+    <UnitTestResult executionId="2c53b1f9-8d08-4e96-a5fb-bd96372c96d1" testId="480da97f-7c56-de20-047b-9afe2b21a3d8" testName="BackupManager_CreatePatternsBackup_ShouldCreateBackupFile" computerName="YUI" duration="00:00:00.0141155" startTime="2025-09-26T16:49:59.8125500-04:00" endTime="2025-09-26T16:49:59.8380181-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2c53b1f9-8d08-4e96-a5fb-bd96372c96d1">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.BackupManagerTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'patterns_backup_20250926_164818.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.RemoveDirectoryRecursive(String fullPath, WIN32_FIND_DATA&amp; findData, Boolean topLevel)&#xD;
+   at System.IO.FileSystem.RemoveDirectory(String fullPath, Boolean recursive)&#xD;
+   at WootMouseRemap.Tests.BackupManagerTests.CleanupBackupDirectoryWithRetry(Int32 maxRetries) in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 75&#xD;
+   at WootMouseRemap.Tests.BackupManagerTests.Setup() in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 30&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="881d45fb-3e01-4b23-b725-2f7953b56607" testId="3becef6f-b96b-0143-abc4-8f9eec411ea1" testName="PatternTransforms_Normalize_ShouldScaleToTargetPeak" computerName="YUI" duration="00:00:00.0035809" startTime="2025-09-26T16:49:59.8873784-04:00" endTime="2025-09-26T16:49:59.8910787-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="881d45fb-3e01-4b23-b725-2f7953b56607" />
+    <UnitTestResult executionId="53d95c46-19a0-4428-8377-98393a28f8e1" testId="cdf44498-b20e-6483-4f49-53317bec0b0e" testName="Attach_ShouldRegisterDevice" computerName="YUI" duration="00:00:00.1218136" startTime="2025-09-26T16:49:59.8919295-04:00" endTime="2025-09-26T16:50:00.0138329-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="53d95c46-19a0-4428-8377-98393a28f8e1" />
+    <UnitTestResult executionId="91636272-1d5e-469a-a412-d1da6dc0dd71" testId="b499ea67-c395-acfa-7826-feb27b7769a7" testName="ViewModel_DefaultValues_ShouldMatchAntiRecoilDefaults" computerName="YUI" duration="00:00:00.0150346" startTime="2025-09-26T16:49:59.8941261-04:00" endTime="2025-09-26T16:49:59.9092473-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="91636272-1d5e-469a-a412-d1da6dc0dd71" />
+    <UnitTestResult executionId="222f37b3-61e0-4c6a-abc8-6a9fd141eace" testId="1adb681c-69be-b38e-7a88-5f4bf44b3200" testName="CompactFormValidation_ShouldInitialize" computerName="YUI" duration="00:00:00.2065468" startTime="2025-09-26T16:49:59.9215050-04:00" endTime="2025-09-26T16:50:00.1281276-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="222f37b3-61e0-4c6a-abc8-6a9fd141eace" />
+    <UnitTestResult executionId="12f5319b-e5a4-422d-8519-f98935ac0667" testId="696441fd-bafa-6795-bfc3-f9f9d6e658ef" testName="PatternTransforms_Statistics_ShouldCalculateCorrectMetrics" computerName="YUI" duration="00:00:00.0050282" startTime="2025-09-26T16:49:59.8903759-04:00" endTime="2025-09-26T16:49:59.8958596-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="12f5319b-e5a4-422d-8519-f98935ac0667" />
+    <UnitTestResult executionId="06faeb3f-b89a-486f-ad60-656eac77dbab" testId="c34da4f5-51ef-f10b-a834-7408641eba4e" testName="CompactFormSettings_ShouldPersistBetweenInstances" computerName="YUI" duration="00:00:00.2061778" startTime="2025-09-26T16:49:59.9214982-04:00" endTime="2025-09-26T16:50:00.1277764-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="06faeb3f-b89a-486f-ad60-656eac77dbab" />
+    <UnitTestResult executionId="637c1d1d-9f39-43cd-aa52-ebb7d4156af6" testId="a38936ff-daba-aa28-ecd9-4315c4ffcb3a" testName="Dispose_ShouldCleanUpResources" computerName="YUI" duration="00:00:00.1310235" startTime="2025-09-26T16:49:59.8922806-04:00" endTime="2025-09-26T16:50:00.0233938-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="637c1d1d-9f39-43cd-aa52-ebb7d4156af6" />
+    <UnitTestResult executionId="23ec3763-782f-43fd-a27e-8c4985723e2f" testId="c75e4195-9074-5938-778b-54d27d3df2ac" testName="BackupInfo_DisplayName_ShouldFormatCorrectly" computerName="YUI" duration="00:00:00.2165410" startTime="2025-09-26T16:49:59.8466397-04:00" endTime="2025-09-26T16:50:00.0632816-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23ec3763-782f-43fd-a27e-8c4985723e2f" />
+    <UnitTestResult executionId="33dd6e81-602a-4602-9fc1-26e04f18da19" testId="a7b4c07e-2348-df92-ccf4-ef80f459e9c4" testName="PatternTransforms_SmoothGaussian_ShouldPreserveSampleCount" computerName="YUI" duration="00:00:00.0048110" startTime="2025-09-26T16:49:59.8877963-04:00" endTime="2025-09-26T16:49:59.8926792-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="33dd6e81-602a-4602-9fc1-26e04f18da19" />
+    <UnitTestResult executionId="a9d82631-a549-4520-babb-660a3f7e8bf7" testId="8e7a1f65-7036-6bfa-3a54-ecf6ab63d7e4" testName="MapsterConfig_MapsMouseEvents" computerName="YUI" duration="00:00:00.0214248" startTime="2025-09-26T16:49:59.8756976-04:00" endTime="2025-09-26T16:49:59.8971802-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a9d82631-a549-4520-babb-660a3f7e8bf7" />
+    <UnitTestResult executionId="ace7b8d9-4a89-4fea-b33e-aac5c3fa0ce6" testId="64fefbad-df03-ea5b-e94c-848ca51ffae0" testName="HandleMessage_WithNonInputMessage_ShouldReturnFalse" computerName="YUI" duration="00:00:00.0642192" startTime="2025-09-26T16:49:59.8925369-04:00" endTime="2025-09-26T16:49:59.9568256-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ace7b8d9-4a89-4fea-b33e-aac5c3fa0ce6" />
+    <UnitTestResult executionId="5fdd7e9c-59fa-45ef-9913-91dd5ea352ef" testId="048e8fcc-2ef4-4bae-d757-f4b00f8068dd" testName="FormStateData_DefaultValues_ShouldBeCorrect" computerName="YUI" duration="00:00:00.0008463" startTime="2025-09-26T16:49:59.8532333-04:00" endTime="2025-09-26T16:49:59.8541359-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5fdd7e9c-59fa-45ef-9913-91dd5ea352ef">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.BackupManagerTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'antirecoil_settings.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.RemoveDirectoryRecursive(String fullPath, WIN32_FIND_DATA&amp; findData, Boolean topLevel)&#xD;
+   at System.IO.FileSystem.RemoveDirectory(String fullPath, Boolean recursive)&#xD;
+   at WootMouseRemap.Tests.BackupManagerTests.CleanupBackupDirectoryWithRetry(Int32 maxRetries) in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 75&#xD;
+   at WootMouseRemap.Tests.BackupManagerTests.Setup() in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 30&#xD;
+   at InvokeStub_BackupManagerTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cbdddc95-5cb3-49f8-9653-e57acf4de147" testId="090c2e2e-a4fc-6531-267d-4bce555cb99e" testName="AntiRecoil_CooldownPeriod_ShouldPreventImmediateReactivation" computerName="YUI" duration="00:00:00.0138378" startTime="2025-09-26T16:49:59.8124681-04:00" endTime="2025-09-26T16:49:59.8380220-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cbdddc95-5cb3-49f8-9653-e57acf4de147">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.AntiRecoilTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\antirecoil_settings.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.DeleteFile(String fullPath)&#xD;
+   at WootMouseRemap.Tests.AntiRecoilTests.Setup() in v:\u\a\WootMouseRemap.Tests\AntiRecoilTests.cs:line 24&#xD;
+   at InvokeStub_AntiRecoilTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4dc129f5-ad67-4958-ab8b-898698ff7220" testId="d5e1faa8-1da1-d858-1c44-63821338b623" testName="MouseEvent_ShouldBeRaisedOnMouseInput" computerName="YUI" duration="00:00:00.1259062" startTime="2025-09-26T16:49:59.8935085-04:00" endTime="2025-09-26T16:50:00.0195009-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4dc129f5-ad67-4958-ab8b-898698ff7220" />
+    <UnitTestResult executionId="3d55f8d8-7734-43a9-b9a3-283836840327" testId="13f10c6c-c914-1aa1-8e1e-b0aff84ab7a1" testName="BackupManager_CreateFullBackup_ShouldCreateManifestAndBackupFiles" computerName="YUI" duration="00:00:00.0288262" startTime="2025-09-26T16:49:59.8466483-04:00" endTime="2025-09-26T16:49:59.8755477-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3d55f8d8-7734-43a9-b9a3-283836840327">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Full backup directory should be created</Message>
+          <StackTrace>   at WootMouseRemap.Tests.BackupManagerTests.BackupManager_CreateFullBackup_ShouldCreateManifestAndBackupFiles() in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 246&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9fcf1230-c06b-415f-b634-6e88e7c5896a" testId="cf59cbe5-cdfe-0616-74c2-cdae02ca07a6" testName="PatternTransforms_Invert_ShouldNegateYValues" computerName="YUI" duration="00:00:00.0010369" startTime="2025-09-26T16:49:59.8900955-04:00" endTime="2025-09-26T16:49:59.8911892-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9fcf1230-c06b-415f-b634-6e88e7c5896a" />
+    <UnitTestResult executionId="b3f63141-4384-4a6f-8d29-c06a91605811" testId="80f88cbb-b779-2e33-8fdb-400bd756d0f1" testName="BackupManager_GetAvailableBackups_ShouldReturnBackupInfo" computerName="YUI" duration="00:00:00.0120098" startTime="2025-09-26T16:49:59.8409573-04:00" endTime="2025-09-26T16:49:59.8530570-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3f63141-4384-4a6f-8d29-c06a91605811">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Should return at least 2 backups</Message>
+          <StackTrace>   at WootMouseRemap.Tests.BackupManagerTests.BackupManager_GetAvailableBackups_ShouldReturnBackupInfo() in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 150&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="24e1f5e8-794c-4f24-b446-3b5f0cb8e7e2" testId="911e52e9-5dcd-59bb-067c-0d8837953b36" testName="BackupManager_CreateBackupNonExistentFile_ShouldNotCreateBackup" computerName="YUI" duration="00:00:00.0063713" startTime="2025-09-26T16:49:59.8466292-04:00" endTime="2025-09-26T16:49:59.8530893-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="24e1f5e8-794c-4f24-b446-3b5f0cb8e7e2">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;0&gt;. Actual:&lt;1&gt;. No backup should be created for non-existent file</Message>
+          <StackTrace>   at WootMouseRemap.Tests.BackupManagerTests.BackupManager_CreateBackupNonExistentFile_ShouldNotCreateBackup() in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 138&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="55ace8da-4972-441b-98aa-8822b7318425" testId="f21a6825-1b66-b1eb-7791-d2635dca9dc4" testName="CurveProcessor_AppliesTransformationsCorrectly" computerName="YUI" duration="00:00:00.0044704" startTime="2025-09-26T16:49:59.8833019-04:00" endTime="2025-09-26T16:49:59.8878343-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="55ace8da-4972-441b-98aa-8822b7318425">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Higher sensitivity should produce larger output</Message>
+          <StackTrace>   at WootMouseRemap.Tests.InputMappingTests.CurveProcessor_AppliesTransformationsCorrectly() in v:\u\a\WootMouseRemap.Tests\InputMappingTests.cs:line 154&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="aa576b4f-bfe0-4780-b291-4e1b765e3ede" testId="577edc41-8326-92d7-d4d2-a41ed8061f0c" testName="AntiRecoil_MovementAboveThreshold_ShouldCompensate" computerName="YUI" duration="00:00:00.0582938" startTime="2025-09-26T16:49:59.8255828-04:00" endTime="2025-09-26T16:49:59.8839901-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa576b4f-bfe0-4780-b291-4e1b765e3ede">
+      <Output>
+        <StdOut>Enabled: True, IsShootingDetected: True, IsActive: False&#xD;
+Input dy: -10, Result dy: -10, Expected: &gt; -10</StdOut>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Vertical compensation should reduce upward movement (less negative)</Message>
+          <StackTrace>   at WootMouseRemap.Tests.AntiRecoilTests.AntiRecoil_MovementAboveThreshold_ShouldCompensate() in v:\u\a\WootMouseRemap.Tests\AntiRecoilTests.cs:line 100&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="63484c31-55e7-482c-a498-68ed39eeefa8" testId="5d6c565c-db00-b465-ba12-19a999151f04" testName="BackupManager_CreateUiStateBackup_ShouldCreateBackupFile" computerName="YUI" duration="00:00:00.0520946" startTime="2025-09-26T16:49:59.8125416-04:00" endTime="2025-09-26T16:49:59.8746899-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="63484c31-55e7-482c-a498-68ed39eeefa8">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. UI state backup file should be created</Message>
+          <StackTrace>   at WootMouseRemap.Tests.BackupManagerTests.BackupManager_CreateUiStateBackup_ShouldCreateBackupFile() in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 129&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d48161d0-5a90-4fc0-8b4b-143893188e7d" testId="f9b78490-76d2-4638-cf33-64eee2d94bee" testName="AntiRecoil_Events_ShouldFireCorrectly" computerName="YUI" duration="00:00:00.0107716" startTime="2025-09-26T16:49:59.8255510-04:00" endTime="2025-09-26T16:49:59.8380031-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d48161d0-5a90-4fc0-8b4b-143893188e7d">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.AntiRecoilTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\antirecoil_settings.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.DeleteFile(String fullPath)&#xD;
+   at WootMouseRemap.Tests.AntiRecoilTests.Setup() in v:\u\a\WootMouseRemap.Tests\AntiRecoilTests.cs:line 24&#xD;
+   at InvokeStub_AntiRecoilTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="12e6e69d-15b9-44b8-b290-a0ca5e0d7f34" testId="891f9f01-c434-5636-d21f-8deac5a36c0e" testName="BackupManager_CleanupOldBackups_ShouldKeepOnlyRecentBackups" computerName="YUI" duration="00:00:00.2446802" startTime="2025-09-26T16:49:59.8466235-04:00" endTime="2025-09-26T16:50:00.0914262-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="12e6e69d-15b9-44b8-b290-a0ca5e0d7f34" />
+    <UnitTestResult executionId="8ca954ca-d4b5-49ce-9c5a-41981fccc876" testId="66734b22-953a-4459-ca76-d9b3b1a8d488" testName="ProfileService_HandlesInvalidProfiles" computerName="YUI" duration="00:00:00.0027821" startTime="2025-09-26T16:49:59.8845064-04:00" endTime="2025-09-26T16:49:59.8873410-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8ca954ca-d4b5-49ce-9c5a-41981fccc876" />
+    <UnitTestResult executionId="c3bba732-a13e-47ed-a01f-4db4a64a469a" testId="ebd07117-d8a6-8797-e405-3b1dbc9483ac" testName="AntiRecoil_MovementBelowThreshold_ShouldNotActivate" computerName="YUI" duration="00:00:00.0138483" startTime="2025-09-26T16:49:59.8125239-04:00" endTime="2025-09-26T16:49:59.8379634-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c3bba732-a13e-47ed-a01f-4db4a64a469a">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.AntiRecoilTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\antirecoil_settings.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.DeleteFile(String fullPath)&#xD;
+   at WootMouseRemap.Tests.AntiRecoilTests.Setup() in v:\u\a\WootMouseRemap.Tests\AntiRecoilTests.cs:line 24&#xD;
+   at InvokeStub_AntiRecoilTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6c707a49-95a7-431d-b5ec-d8e42a5f2be3" testId="9fb00e2e-3aed-0afa-161c-7d848891cede" testName="ControllerStateBatch_MaintainsState" computerName="YUI" duration="00:00:00.0028268" startTime="2025-09-26T16:49:59.8844829-04:00" endTime="2025-09-26T16:49:59.8873670-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6c707a49-95a7-431d-b5ec-d8e42a5f2be3" />
+    <UnitTestResult executionId="68a3e918-5c44-4bc7-b5d5-33e9ec92b555" testId="302a3092-9d13-708c-2e13-923bc85c71b3" testName="PatternTransforms_Scale_ShouldScaleXAndYIndependently" computerName="YUI" duration="00:00:00.0018956" startTime="2025-09-26T16:49:59.8890545-04:00" endTime="2025-09-26T16:49:59.8909979-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="68a3e918-5c44-4bc7-b5d5-33e9ec92b555" />
+    <UnitTestResult executionId="62f336d3-1cc4-45b1-89ae-3664ff40bde6" testId="7e7a6d23-9976-ebb6-08c1-026a38de9559" testName="PatternTransforms_Downsample_ShouldReduceSampleCount" computerName="YUI" duration="00:00:00.0008232" startTime="2025-09-26T16:49:59.8890524-04:00" endTime="2025-09-26T16:49:59.8900659-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="62f336d3-1cc4-45b1-89ae-3664ff40bde6" />
+    <UnitTestResult executionId="3f685b8d-5b18-4655-9ba3-833723d828cd" testId="b0e2ee41-c6ac-8c69-d481-fce4cde0d608" testName="UserPreferences_DefaultValues_ShouldBeCorrect" computerName="YUI" duration="00:00:00.0016828" startTime="2025-09-26T16:49:59.8532399-04:00" endTime="2025-09-26T16:49:59.8549835-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3f685b8d-5b18-4655-9ba3-833723d828cd" />
+    <UnitTestResult executionId="903e2c25-f472-40e8-8a46-cd6a7f08853e" testId="cca56c4e-8703-9c10-1c16-68db59dec6e4" testName="ViewModel_PropertyChangedDoesNotFireForSameValue" computerName="YUI" duration="00:00:00.0076089" startTime="2025-09-26T16:49:59.9134244-04:00" endTime="2025-09-26T16:49:59.9210874-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="903e2c25-f472-40e8-8a46-cd6a7f08853e" />
+    <UnitTestResult executionId="3b0418f8-714e-4e99-8411-3517949c3cbd" testId="d599f121-1855-89b6-00c4-f5d838f61437" testName="AntiRecoil_MaxTickCompensation_ShouldCapPerTickCompensation" computerName="YUI" duration="00:00:00.0611394" startTime="2025-09-26T16:49:59.8124765-04:00" endTime="2025-09-26T16:49:59.8837182-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b0418f8-714e-4e99-8411-3517949c3cbd">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Per-tick compensation should not exceed MaxTickCompensation</Message>
+          <StackTrace>   at WootMouseRemap.Tests.AntiRecoilTests.AntiRecoil_MaxTickCompensation_ShouldCapPerTickCompensation() in v:\u\a\WootMouseRemap.Tests\AntiRecoilTests.cs:line 118&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2a1717f3-68fc-411c-ac27-8e4fa8fdda69" testId="2f9d1d9d-42f0-b3af-39ce-db555666f839" testName="ViewModel_LoadFromNullAntiRecoil_ShouldNotThrow" computerName="YUI" duration="00:00:00.0075970" startTime="2025-09-26T16:49:59.9127348-04:00" endTime="2025-09-26T16:49:59.9204548-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2a1717f3-68fc-411c-ac27-8e4fa8fdda69" />
+    <UnitTestResult executionId="b2b27181-394a-40b0-b7f3-cbffe67effae" testId="6d997c0a-efd5-eec1-c5e4-2fb7c82c7d4c" testName="MapsterConfig_MapsKeyboardEvents" computerName="YUI" duration="00:00:00.0213982" startTime="2025-09-26T16:49:59.8756654-04:00" endTime="2025-09-26T16:49:59.8971557-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b2b27181-394a-40b0-b7f3-cbffe67effae" />
+    <UnitTestResult executionId="918e56bf-866f-4671-8406-7d2d7dfd798d" testId="6ab7f487-545d-bb1f-0c7c-1af6a2079cc5" testName="UiStateData_DefaultValues_ShouldBeCorrect" computerName="YUI" duration="00:00:00.0008669" startTime="2025-09-26T16:49:59.8532067-04:00" endTime="2025-09-26T16:49:59.8541778-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="918e56bf-866f-4671-8406-7d2d7dfd798d">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method WootMouseRemap.Tests.BackupManagerTests.Setup threw exception. System.UnauthorizedAccessException: Access to the path 'antirecoil_settings.json' is denied..</Message>
+          <StackTrace>   at System.IO.FileSystem.RemoveDirectoryRecursive(String fullPath, WIN32_FIND_DATA&amp; findData, Boolean topLevel)&#xD;
+   at System.IO.FileSystem.RemoveDirectory(String fullPath, Boolean recursive)&#xD;
+   at WootMouseRemap.Tests.BackupManagerTests.CleanupBackupDirectoryWithRetry(Int32 maxRetries) in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 75&#xD;
+   at WootMouseRemap.Tests.BackupManagerTests.Setup() in v:\u\a\WootMouseRemap.Tests\BackupManagerTests.cs:line 30&#xD;
+   at InvokeStub_BackupManagerTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="BackupManager_GetAvailableBackups_ShouldReturnBackupInfo" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="80f88cbb-b779-2e33-8fdb-400bd756d0f1">
+      <Execution id="b3f63141-4384-4a6f-8d29-c06a91605811" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_GetAvailableBackups_ShouldReturnBackupInfo" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_Scale_ShouldScaleXAndYIndependently" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="302a3092-9d13-708c-2e13-923bc85c71b3">
+      <Execution id="68a3e918-5c44-4bc7-b5d5-33e9ec92b555" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_Scale_ShouldScaleXAndYIndependently" />
+    </UnitTest>
+    <UnitTest name="ControllerStateBatch_MaintainsState" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="9fb00e2e-3aed-0afa-161c-7d848891cede">
+      <Execution id="6c707a49-95a7-431d-b5ec-d8e42a5f2be3" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="ControllerStateBatch_MaintainsState" />
+    </UnitTest>
+    <UnitTest name="Detach_ShouldUnregisterDevice" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="b070f649-966d-9030-bad0-701227ee93ad">
+      <Execution id="4e12fc6e-f65e-443a-a0ec-6eb4aedd6e3e" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.RawInputServiceTests" name="Detach_ShouldUnregisterDevice" />
+    </UnitTest>
+    <UnitTest name="BackupManager_RestoreBackupWithExistingTarget_ShouldCreatePreRestoreBackup" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="55748898-834c-c294-1c69-ecebb43bf5ae">
+      <Execution id="6604ff8b-d894-475c-955f-e9b87a296b0f" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_RestoreBackupWithExistingTarget_ShouldCreatePreRestoreBackup" />
+    </UnitTest>
+    <UnitTest name="BackupManager_CreatePatternsBackup_ShouldCreateBackupFile" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="480da97f-7c56-de20-047b-9afe2b21a3d8">
+      <Execution id="2c53b1f9-8d08-4e96-a5fb-bd96372c96d1" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_CreatePatternsBackup_ShouldCreateBackupFile" />
+    </UnitTest>
+    <UnitTest name="BackupInfo_DisplayName_ShouldFormatCorrectly" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="c75e4195-9074-5938-778b-54d27d3df2ac">
+      <Execution id="23ec3763-782f-43fd-a27e-8c4985723e2f" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupInfo_DisplayName_ShouldFormatCorrectly" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_WithEmptyPattern_ShouldHandleGracefully" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="6cd1968d-ffda-81c7-64c4-0f9f4fe762e6">
+      <Execution id="c6c1829e-78f9-41c9-95db-f02f8c718506" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_WithEmptyPattern_ShouldHandleGracefully" />
+    </UnitTest>
+    <UnitTest name="BackupManager_CreateSettingsBackup_ShouldCreateBackupFile" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="430f71ca-d5bd-4b1a-803a-f7dadaa70cd8">
+      <Execution id="74d5678d-eca1-4345-b5bb-cff4814c1df0" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_CreateSettingsBackup_ShouldCreateBackupFile" />
+    </UnitTest>
+    <UnitTest name="Attach_ShouldRegisterDevice" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="cdf44498-b20e-6483-4f49-53317bec0b0e">
+      <Execution id="53d95c46-19a0-4428-8377-98393a28f8e1" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.RawInputServiceTests" name="Attach_ShouldRegisterDevice" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_EnabledWithZeroStrength_ShouldNotCompensate" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="5ba22b9e-e035-b37e-a784-31929f07ea58">
+      <Execution id="c8e524c1-1354-4f3c-b80a-e5db544adefb" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_EnabledWithZeroStrength_ShouldNotCompensate" />
+    </UnitTest>
+    <UnitTest name="ProfileService_LoadsDefaultProfile" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="6f9cea08-b875-04f6-858e-921a97bf121e">
+      <Execution id="fab2c02f-0b95-43f8-b311-b6a96bb277c1" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="ProfileService_LoadsDefaultProfile" />
+    </UnitTest>
+    <UnitTest name="FullBackupManifest_DefaultValues_ShouldBeCorrect" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="00bae1c6-dd39-f179-a906-a8e1bd9aa39b">
+      <Execution id="e709f103-16eb-4f06-b1eb-5ae70c8ccf42" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="FullBackupManifest_DefaultValues_ShouldBeCorrect" />
+    </UnitTest>
+    <UnitTest name="ViewModel_ApplyTo_ShouldUpdateAntiRecoilSettings" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="df7a0bed-6371-a294-fe35-5e99c77d80c7">
+      <Execution id="8b3162b2-f695-40ae-8346-e758f71c104f" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.ViewModelTests" name="ViewModel_ApplyTo_ShouldUpdateAntiRecoilSettings" />
+    </UnitTest>
+    <UnitTest name="CompactFormKeyboardShortcuts_ShouldBeDefined" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="332af98d-d8d8-9a6e-6f26-b4acf0a06357">
+      <Execution id="bc814a03-559c-480c-939f-ecc4981f5a29" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.UI.CompactFormsTests" name="CompactFormKeyboardShortcuts_ShouldBeDefined" />
+    </UnitTest>
+    <UnitTest name="BackupManager_CreateUiStateBackup_ShouldCreateBackupFile" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="5d6c565c-db00-b465-ba12-19a999151f04">
+      <Execution id="63484c31-55e7-482c-a498-68ed39eeefa8" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_CreateUiStateBackup_ShouldCreateBackupFile" />
+    </UnitTest>
+    <UnitTest name="ViewModel_ApplyToNullAntiRecoil_ShouldNotThrow" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="d73515be-db9e-0865-95a9-c29bb0dde84d">
+      <Execution id="f16e30e6-3e33-4549-bd59-a8870301f22f" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.ViewModelTests" name="ViewModel_ApplyToNullAntiRecoil_ShouldNotThrow" />
+    </UnitTest>
+    <UnitTest name="MapsterConfig_MapsMouseEvents" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="8e7a1f65-7036-6bfa-3a54-ecf6ab63d7e4">
+      <Execution id="a9d82631-a549-4520-babb-660a3f7e8bf7" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="MapsterConfig_MapsMouseEvents" />
+    </UnitTest>
+    <UnitTest name="ViewModel_LoadFromNullAntiRecoil_ShouldNotThrow" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="2f9d1d9d-42f0-b3af-39ce-db555666f839">
+      <Execution id="2a1717f3-68fc-411c-ac27-8e4fa8fdda69" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.ViewModelTests" name="ViewModel_LoadFromNullAntiRecoil_ShouldNotThrow" />
+    </UnitTest>
+    <UnitTest name="CompactFormValidation_ShouldInitialize" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="1adb681c-69be-b38e-7a88-5f4bf44b3200">
+      <Execution id="222f37b3-61e0-4c6a-abc8-6a9fd141eace" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.UI.CompactFormsTests" name="CompactFormValidation_ShouldInitialize" />
+    </UnitTest>
+    <UnitTest name="BackupManager_RestoreBackup_ShouldRestoreFileContent" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="b980327d-981e-01b1-142f-1508546e8388">
+      <Execution id="7613c58c-6871-44a9-ab40-35b82e92c54f" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_RestoreBackup_ShouldRestoreFileContent" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_InvalidParameters_ShouldHandleGracefully" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="65ec1094-44d9-03a6-c8a1-71f9f9efeb80">
+      <Execution id="cc3a0e86-0b49-45f7-9559-f36a2e027f12" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_InvalidParameters_ShouldHandleGracefully" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_Downsample_ShouldReduceSampleCount" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="7e7a6d23-9976-ebb6-08c1-026a38de9559">
+      <Execution id="62f336d3-1cc4-45b1-89ae-3664ff40bde6" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_Downsample_ShouldReduceSampleCount" />
+    </UnitTest>
+    <UnitTest name="CurveProcessor_AppliesTransformationsCorrectly" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="f21a6825-1b66-b1eb-7791-d2635dca9dc4">
+      <Execution id="55ace8da-4972-441b-98aa-8822b7318425" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="CurveProcessor_AppliesTransformationsCorrectly" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_Trim_ShouldRemoveLeadingAndTrailingZeros" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="163712f4-8294-cd0c-7833-44c36098b2e1">
+      <Execution id="91a39664-48a9-4441-9f39-63311e26ade8" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_Trim_ShouldRemoveLeadingAndTrailingZeros" />
+    </UnitTest>
+    <UnitTest name="BackupManager_CreateBackupNonExistentFile_ShouldNotCreateBackup" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="911e52e9-5dcd-59bb-067c-0d8837953b36">
+      <Execution id="24e1f5e8-794c-4f24-b446-3b5f0cb8e7e2" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_CreateBackupNonExistentFile_ShouldNotCreateBackup" />
+    </UnitTest>
+    <UnitTest name="ViewModel_IsDirty_ShouldTrackChanges" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="832c60b2-c1b1-2232-07f4-5c598c8f151f">
+      <Execution id="1c385189-fb97-4859-a0ff-57ed5d7c6b08" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.ViewModelTests" name="ViewModel_IsDirty_ShouldTrackChanges" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_MaxTickCompensation_ShouldCapPerTickCompensation" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="d599f121-1855-89b6-00c4-f5d838f61437">
+      <Execution id="3b0418f8-714e-4e99-8411-3517949c3cbd" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_MaxTickCompensation_ShouldCapPerTickCompensation" />
+    </UnitTest>
+    <UnitTest name="AdvancedAntiRecoilOverlayCompactForm_ShouldHandleMissingOverlayGracefully" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="e14b0566-2258-4315-7f55-5118c64c3c22">
+      <Execution id="4e73278a-d4ad-4f36-83a6-dd7cc6b70811" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.UI.CompactFormsTests" name="AdvancedAntiRecoilOverlayCompactForm_ShouldHandleMissingOverlayGracefully" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_Statistics_ShouldCalculateCorrectMetrics" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="696441fd-bafa-6795-bfc3-f9f9d6e658ef">
+      <Execution id="12f5319b-e5a4-422d-8519-f98935ac0667" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_Statistics_ShouldCalculateCorrectMetrics" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_WithSingleSample_ShouldHandleGracefully" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="7177b414-ed19-095a-16c1-493859563ca2">
+      <Execution id="134dcc5a-790a-434c-90ba-fc9184efad91" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_WithSingleSample_ShouldHandleGracefully" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_DecayOverTime_ShouldReduceAccumulatedCompensation" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="e61a1ac7-b206-f298-ccdb-f46b2d189601">
+      <Execution id="7f974fd5-4d35-45fb-a0c5-7cb9980bcd7b" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_DecayOverTime_ShouldReduceAccumulatedCompensation" />
+    </UnitTest>
+    <UnitTest name="UiStateData_DefaultValues_ShouldBeCorrect" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="6ab7f487-545d-bb1f-0c7c-1af6a2079cc5">
+      <Execution id="918e56bf-866f-4671-8406-7d2d7dfd798d" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="UiStateData_DefaultValues_ShouldBeCorrect" />
+    </UnitTest>
+    <UnitTest name="MouseEvent_ShouldBeRaisedOnMouseInput" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="d5e1faa8-1da1-d858-1c44-63821338b623">
+      <Execution id="4dc129f5-ad67-4958-ab8b-898698ff7220" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.RawInputServiceTests" name="MouseEvent_ShouldBeRaisedOnMouseInput" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_SmoothMovingAverage_ShouldReduceNoise" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="ae2e3d33-0526-1df9-296d-c65f04940726">
+      <Execution id="46668349-9e69-4600-b25c-8a691a1011b7" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_SmoothMovingAverage_ShouldReduceNoise" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_HorizontalCompensation_ShouldCompensateHorizontalMovement" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="0242d2fc-2093-8298-99dc-bfb83b7f352a">
+      <Execution id="1f5083b2-a5a0-425a-953e-7979b200247b" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_HorizontalCompensation_ShouldCompensateHorizontalMovement" />
+    </UnitTest>
+    <UnitTest name="BackupManager_CreateFullBackup_ShouldCreateManifestAndBackupFiles" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="13f10c6c-c914-1aa1-8e1e-b0aff84ab7a1">
+      <Execution id="3d55f8d8-7734-43a9-b9a3-283836840327" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_CreateFullBackup_ShouldCreateManifestAndBackupFiles" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_DefaultSettings_ShouldHaveValidDefaults" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="4b48f8c3-d924-7083-86ae-7a0227564fed">
+      <Execution id="11756b94-acc1-4f23-b937-3a2e8ad5079b" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_DefaultSettings_ShouldHaveValidDefaults" />
+    </UnitTest>
+    <UnitTest name="FormStateData_DefaultValues_ShouldBeCorrect" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="048e8fcc-2ef4-4bae-d757-f4b00f8068dd">
+      <Execution id="5fdd7e9c-59fa-45ef-9913-91dd5ea352ef" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="FormStateData_DefaultValues_ShouldBeCorrect" />
+    </UnitTest>
+    <UnitTest name="ViewModel_DefaultValues_ShouldMatchAntiRecoilDefaults" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="b499ea67-c395-acfa-7826-feb27b7769a7">
+      <Execution id="91636272-1d5e-469a-a412-d1da6dc0dd71" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.ViewModelTests" name="ViewModel_DefaultValues_ShouldMatchAntiRecoilDefaults" />
+    </UnitTest>
+    <UnitTest name="ProfileService_SavesAndLoadsProfile" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="c463be39-1ae2-f7be-36b0-f0c10cf71e63">
+      <Execution id="1d29c89c-f0d9-4609-820c-90ba1c815b67" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="ProfileService_SavesAndLoadsProfile" />
+    </UnitTest>
+    <UnitTest name="ProfileService_CreatesGameProfiles" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="57f07783-3c06-2abe-9b78-a4509d95e415">
+      <Execution id="97637b56-c4f8-414a-8a63-c33a8260d4d1" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="ProfileService_CreatesGameProfiles" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_MovementBelowThreshold_ShouldNotActivate" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="ebd07117-d8a6-8797-e405-3b1dbc9483ac">
+      <Execution id="c3bba732-a13e-47ed-a01f-4db4a64a469a" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_MovementBelowThreshold_ShouldNotActivate" />
+    </UnitTest>
+    <UnitTest name="StickMapper_HandlesWASDCorrectly" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="3b27c4a7-d06d-e8bd-f04b-0c5214a36800">
+      <Execution id="27883311-0eac-49a1-ab3c-c388a36611cf" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="StickMapper_HandlesWASDCorrectly" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_MaxTotalCompensation_ShouldCapAccumulatedCompensation" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="b23f711b-ae6d-500b-2f04-f308bc91f8db">
+      <Execution id="d19576cd-c4d9-4c05-b3dd-2c189d3a402b" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_MaxTotalCompensation_ShouldCapAccumulatedCompensation" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_CooldownPeriod_ShouldPreventImmediateReactivation" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="090c2e2e-a4fc-6531-267d-4bce555cb99e">
+      <Execution id="cbdddc95-5cb3-49f8-9653-e57acf4de147" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_CooldownPeriod_ShouldPreventImmediateReactivation" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_Invert_ShouldNegateYValues" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="cf59cbe5-cdfe-0616-74c2-cdae02ca07a6">
+      <Execution id="9fcf1230-c06b-415f-b634-6e88e7c5896a" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_Invert_ShouldNegateYValues" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_Normalize_ShouldScaleToTargetPeak" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="3becef6f-b96b-0143-abc4-8f9eec411ea1">
+      <Execution id="881d45fb-3e01-4b23-b725-2f7953b56607" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_Normalize_ShouldScaleToTargetPeak" />
+    </UnitTest>
+    <UnitTest name="InputOrchestrator_ProcessesEventsCorrectly" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="404e45f0-88b3-b698-bcad-5ed487534579">
+      <Execution id="725faec8-e59b-4a75-9e56-14438851f654" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="InputOrchestrator_ProcessesEventsCorrectly" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_Normalize_WithZeroPeak_ShouldReturnOriginal" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="09892e59-0003-cf87-cc0b-77dc71270c2a">
+      <Execution id="890169ee-9dc0-4342-90ad-d089f523792e" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_Normalize_WithZeroPeak_ShouldReturnOriginal" />
+    </UnitTest>
+    <UnitTest name="ViewModel_Reset_ShouldRestoreDefaults" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="49fff9b4-c79d-2e46-eb73-10194794d2d2">
+      <Execution id="ab02bb92-68d5-467d-8db8-4f6176b5b59a" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.ViewModelTests" name="ViewModel_Reset_ShouldRestoreDefaults" />
+    </UnitTest>
+    <UnitTest name="ViewModel_PropertyChanged_ShouldFireForAllProperties" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="f6085956-fc72-c124-2703-f41318b2a8c2">
+      <Execution id="0eb2286a-e931-45e9-843f-7a5e58f9f000" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.ViewModelTests" name="ViewModel_PropertyChanged_ShouldFireForAllProperties" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_Events_ShouldFireCorrectly" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="f9b78490-76d2-4638-cf33-64eee2d94bee">
+      <Execution id="d48161d0-5a90-4fc0-8b4b-143893188e7d" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_Events_ShouldFireCorrectly" />
+    </UnitTest>
+    <UnitTest name="Dispose_ShouldCleanUpResources" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="a38936ff-daba-aa28-ecd9-4315c4ffcb3a">
+      <Execution id="637c1d1d-9f39-43cd-aa52-ebb7d4156af6" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.RawInputServiceTests" name="Dispose_ShouldCleanUpResources" />
+    </UnitTest>
+    <UnitTest name="ViewModel_PropertyChangedDoesNotFireForSameValue" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="cca56c4e-8703-9c10-1c16-68db59dec6e4">
+      <Execution id="903e2c25-f472-40e8-8a46-cd6a7f08853e" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.ViewModelTests" name="ViewModel_PropertyChangedDoesNotFireForSameValue" />
+    </UnitTest>
+    <UnitTest name="BackupManager_CleanupOldBackups_ShouldKeepOnlyRecentBackups" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="891f9f01-c434-5636-d21f-8deac5a36c0e">
+      <Execution id="12e6e69d-15b9-44b8-b290-a0ca5e0d7f34" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_CleanupOldBackups_ShouldKeepOnlyRecentBackups" />
+    </UnitTest>
+    <UnitTest name="CompactFormSettings_ShouldPersistBetweenInstances" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="c34da4f5-51ef-f10b-a834-7408641eba4e">
+      <Execution id="06faeb3f-b89a-486f-ad60-656eac77dbab" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.UI.CompactFormsTests" name="CompactFormSettings_ShouldPersistBetweenInstances" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_PatternRecording_ShouldCaptureMovements" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="539b4935-a82c-e2a7-a0c5-b852e6af2371">
+      <Execution id="8a21bd6d-67a0-4c00-b685-0425ab2bab33" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_PatternRecording_ShouldCaptureMovements" />
+    </UnitTest>
+    <UnitTest name="AntiRecoil_MovementAboveThreshold_ShouldCompensate" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="577edc41-8326-92d7-d4d2-a41ed8061f0c">
+      <Execution id="aa576b4f-bfe0-4780-b291-4e1b765e3ede" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.AntiRecoilTests" name="AntiRecoil_MovementAboveThreshold_ShouldCompensate" />
+    </UnitTest>
+    <UnitTest name="UserPreferences_DefaultValues_ShouldBeCorrect" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="b0e2ee41-c6ac-8c69-d481-fce4cde0d608">
+      <Execution id="3f685b8d-5b18-4655-9ba3-833723d828cd" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="UserPreferences_DefaultValues_ShouldBeCorrect" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_SmoothGaussian_ShouldPreserveSampleCount" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="a7b4c07e-2348-df92-ccf4-ef80f459e9c4">
+      <Execution id="33dd6e81-602a-4602-9fc1-26e04f18da19" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_SmoothGaussian_ShouldPreserveSampleCount" />
+    </UnitTest>
+    <UnitTest name="ViewModel_PropertyValidation_ShouldEnforceConstraints" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="88da0627-81e8-4907-d492-a12c9b498796">
+      <Execution id="1c7ffc96-30da-43bc-b049-ebfe6c5c6615" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.ViewModelTests" name="ViewModel_PropertyValidation_ShouldEnforceConstraints" />
+    </UnitTest>
+    <UnitTest name="PatternTransforms_RemoveOutliers_ShouldFilterExtremeValues" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="51666c0e-ad42-72e3-d760-0b8ba29dd0c9">
+      <Execution id="d7c4891d-efd1-457c-b8ce-1df33bf80580" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.PatternTransformTests" name="PatternTransforms_RemoveOutliers_ShouldFilterExtremeValues" />
+    </UnitTest>
+    <UnitTest name="BackupManager_DeleteBackup_ShouldRemoveBackupFile" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="d12bff1a-1bc5-4c12-e027-156fe7f24159">
+      <Execution id="042cd5ac-4886-4a62-8db0-2b94f76b37e5" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.BackupManagerTests" name="BackupManager_DeleteBackup_ShouldRemoveBackupFile" />
+    </UnitTest>
+    <UnitTest name="ProfileService_HandlesInvalidProfiles" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="66734b22-953a-4459-ca76-d9b3b1a8d488">
+      <Execution id="8ca954ca-d4b5-49ce-9c5a-41981fccc876" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="ProfileService_HandlesInvalidProfiles" />
+    </UnitTest>
+    <UnitTest name="MapsterConfig_MapsKeyboardEvents" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="6d997c0a-efd5-eec1-c5e4-2fb7c82c7d4c">
+      <Execution id="b2b27181-394a-40b0-b7f3-cbffe67effae" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.InputMappingTests" name="MapsterConfig_MapsKeyboardEvents" />
+    </UnitTest>
+    <UnitTest name="HandleMessage_WithNonInputMessage_ShouldReturnFalse" storage="v:\u\a\wootmouseremap.tests\bin\debug\net8.0-windows\wootmouseremap.tests.dll" id="64fefbad-df03-ea5b-e94c-848ca51ffae0">
+      <Execution id="ace7b8d9-4a89-4fea-b33e-aac5c3fa0ce6" />
+      <TestMethod codeBase="v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="WootMouseRemap.Tests.RawInputServiceTests" name="HandleMessage_WithNonInputMessage_ShouldReturnFalse" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="51666c0e-ad42-72e3-d760-0b8ba29dd0c9" executionId="d7c4891d-efd1-457c-b8ce-1df33bf80580" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3b27c4a7-d06d-e8bd-f04b-0c5214a36800" executionId="27883311-0eac-49a1-ab3c-c388a36611cf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e14b0566-2258-4315-7f55-5118c64c3c22" executionId="4e73278a-d4ad-4f36-83a6-dd7cc6b70811" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b23f711b-ae6d-500b-2f04-f308bc91f8db" executionId="d19576cd-c4d9-4c05-b3dd-2c189d3a402b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="57f07783-3c06-2abe-9b78-a4509d95e415" executionId="97637b56-c4f8-414a-8a63-c33a8260d4d1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7177b414-ed19-095a-16c1-493859563ca2" executionId="134dcc5a-790a-434c-90ba-fc9184efad91" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6f9cea08-b875-04f6-858e-921a97bf121e" executionId="fab2c02f-0b95-43f8-b311-b6a96bb277c1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b070f649-966d-9030-bad0-701227ee93ad" executionId="4e12fc6e-f65e-443a-a0ec-6eb4aedd6e3e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="55748898-834c-c294-1c69-ecebb43bf5ae" executionId="6604ff8b-d894-475c-955f-e9b87a296b0f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b980327d-981e-01b1-142f-1508546e8388" executionId="7613c58c-6871-44a9-ab40-35b82e92c54f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="00bae1c6-dd39-f179-a906-a8e1bd9aa39b" executionId="e709f103-16eb-4f06-b1eb-5ae70c8ccf42" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4b48f8c3-d924-7083-86ae-7a0227564fed" executionId="11756b94-acc1-4f23-b937-3a2e8ad5079b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5ba22b9e-e035-b37e-a784-31929f07ea58" executionId="c8e524c1-1354-4f3c-b80a-e5db544adefb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae2e3d33-0526-1df9-296d-c65f04940726" executionId="46668349-9e69-4600-b25c-8a691a1011b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6cd1968d-ffda-81c7-64c4-0f9f4fe762e6" executionId="c6c1829e-78f9-41c9-95db-f02f8c718506" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65ec1094-44d9-03a6-c8a1-71f9f9efeb80" executionId="cc3a0e86-0b49-45f7-9559-f36a2e027f12" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="832c60b2-c1b1-2232-07f4-5c598c8f151f" executionId="1c385189-fb97-4859-a0ff-57ed5d7c6b08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e61a1ac7-b206-f298-ccdb-f46b2d189601" executionId="7f974fd5-4d35-45fb-a0c5-7cb9980bcd7b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c463be39-1ae2-f7be-36b0-f0c10cf71e63" executionId="1d29c89c-f0d9-4609-820c-90ba1c815b67" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="49fff9b4-c79d-2e46-eb73-10194794d2d2" executionId="ab02bb92-68d5-467d-8db8-4f6176b5b59a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="163712f4-8294-cd0c-7833-44c36098b2e1" executionId="91a39664-48a9-4441-9f39-63311e26ade8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="539b4935-a82c-e2a7-a0c5-b852e6af2371" executionId="8a21bd6d-67a0-4c00-b685-0425ab2bab33" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="430f71ca-d5bd-4b1a-803a-f7dadaa70cd8" executionId="74d5678d-eca1-4345-b5bb-cff4814c1df0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d12bff1a-1bc5-4c12-e027-156fe7f24159" executionId="042cd5ac-4886-4a62-8db0-2b94f76b37e5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="404e45f0-88b3-b698-bcad-5ed487534579" executionId="725faec8-e59b-4a75-9e56-14438851f654" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d73515be-db9e-0865-95a9-c29bb0dde84d" executionId="f16e30e6-3e33-4549-bd59-a8870301f22f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="332af98d-d8d8-9a6e-6f26-b4acf0a06357" executionId="bc814a03-559c-480c-939f-ecc4981f5a29" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0242d2fc-2093-8298-99dc-bfb83b7f352a" executionId="1f5083b2-a5a0-425a-953e-7979b200247b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f6085956-fc72-c124-2703-f41318b2a8c2" executionId="0eb2286a-e931-45e9-843f-7a5e58f9f000" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="09892e59-0003-cf87-cc0b-77dc71270c2a" executionId="890169ee-9dc0-4342-90ad-d089f523792e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="df7a0bed-6371-a294-fe35-5e99c77d80c7" executionId="8b3162b2-f695-40ae-8346-e758f71c104f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="88da0627-81e8-4907-d492-a12c9b498796" executionId="1c7ffc96-30da-43bc-b049-ebfe6c5c6615" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="480da97f-7c56-de20-047b-9afe2b21a3d8" executionId="2c53b1f9-8d08-4e96-a5fb-bd96372c96d1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3becef6f-b96b-0143-abc4-8f9eec411ea1" executionId="881d45fb-3e01-4b23-b725-2f7953b56607" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cdf44498-b20e-6483-4f49-53317bec0b0e" executionId="53d95c46-19a0-4428-8377-98393a28f8e1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b499ea67-c395-acfa-7826-feb27b7769a7" executionId="91636272-1d5e-469a-a412-d1da6dc0dd71" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1adb681c-69be-b38e-7a88-5f4bf44b3200" executionId="222f37b3-61e0-4c6a-abc8-6a9fd141eace" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="696441fd-bafa-6795-bfc3-f9f9d6e658ef" executionId="12f5319b-e5a4-422d-8519-f98935ac0667" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c34da4f5-51ef-f10b-a834-7408641eba4e" executionId="06faeb3f-b89a-486f-ad60-656eac77dbab" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a38936ff-daba-aa28-ecd9-4315c4ffcb3a" executionId="637c1d1d-9f39-43cd-aa52-ebb7d4156af6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c75e4195-9074-5938-778b-54d27d3df2ac" executionId="23ec3763-782f-43fd-a27e-8c4985723e2f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a7b4c07e-2348-df92-ccf4-ef80f459e9c4" executionId="33dd6e81-602a-4602-9fc1-26e04f18da19" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8e7a1f65-7036-6bfa-3a54-ecf6ab63d7e4" executionId="a9d82631-a549-4520-babb-660a3f7e8bf7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="64fefbad-df03-ea5b-e94c-848ca51ffae0" executionId="ace7b8d9-4a89-4fea-b33e-aac5c3fa0ce6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="048e8fcc-2ef4-4bae-d757-f4b00f8068dd" executionId="5fdd7e9c-59fa-45ef-9913-91dd5ea352ef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="090c2e2e-a4fc-6531-267d-4bce555cb99e" executionId="cbdddc95-5cb3-49f8-9653-e57acf4de147" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d5e1faa8-1da1-d858-1c44-63821338b623" executionId="4dc129f5-ad67-4958-ab8b-898698ff7220" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="13f10c6c-c914-1aa1-8e1e-b0aff84ab7a1" executionId="3d55f8d8-7734-43a9-b9a3-283836840327" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cf59cbe5-cdfe-0616-74c2-cdae02ca07a6" executionId="9fcf1230-c06b-415f-b634-6e88e7c5896a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="80f88cbb-b779-2e33-8fdb-400bd756d0f1" executionId="b3f63141-4384-4a6f-8d29-c06a91605811" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="911e52e9-5dcd-59bb-067c-0d8837953b36" executionId="24e1f5e8-794c-4f24-b446-3b5f0cb8e7e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f21a6825-1b66-b1eb-7791-d2635dca9dc4" executionId="55ace8da-4972-441b-98aa-8822b7318425" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="577edc41-8326-92d7-d4d2-a41ed8061f0c" executionId="aa576b4f-bfe0-4780-b291-4e1b765e3ede" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5d6c565c-db00-b465-ba12-19a999151f04" executionId="63484c31-55e7-482c-a498-68ed39eeefa8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f9b78490-76d2-4638-cf33-64eee2d94bee" executionId="d48161d0-5a90-4fc0-8b4b-143893188e7d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="891f9f01-c434-5636-d21f-8deac5a36c0e" executionId="12e6e69d-15b9-44b8-b290-a0ca5e0d7f34" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66734b22-953a-4459-ca76-d9b3b1a8d488" executionId="8ca954ca-d4b5-49ce-9c5a-41981fccc876" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ebd07117-d8a6-8797-e405-3b1dbc9483ac" executionId="c3bba732-a13e-47ed-a01f-4db4a64a469a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9fb00e2e-3aed-0afa-161c-7d848891cede" executionId="6c707a49-95a7-431d-b5ec-d8e42a5f2be3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="302a3092-9d13-708c-2e13-923bc85c71b3" executionId="68a3e918-5c44-4bc7-b5d5-33e9ec92b555" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7e7a6d23-9976-ebb6-08c1-026a38de9559" executionId="62f336d3-1cc4-45b1-89ae-3664ff40bde6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b0e2ee41-c6ac-8c69-d481-fce4cde0d608" executionId="3f685b8d-5b18-4655-9ba3-833723d828cd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cca56c4e-8703-9c10-1c16-68db59dec6e4" executionId="903e2c25-f472-40e8-8a46-cd6a7f08853e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d599f121-1855-89b6-00c4-f5d838f61437" executionId="3b0418f8-714e-4e99-8411-3517949c3cbd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2f9d1d9d-42f0-b3af-39ce-db555666f839" executionId="2a1717f3-68fc-411c-ac27-8e4fa8fdda69" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6d997c0a-efd5-eec1-c5e4-2fb7c82c7d4c" executionId="b2b27181-394a-40b0-b7f3-cbffe67effae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6ab7f487-545d-bb1f-0c7c-1af6a2079cc5" executionId="918e56bf-866f-4671-8406-7d2d7dfd798d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="67" executed="67" passed="47" failed="20" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Test Parallelization enabled for v:\u\a\WootMouseRemap.Tests\bin\Debug\net8.0-windows\WootMouseRemap.Tests.dll (Workers: 16, Scope: MethodLevel)&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="YUI" outcome="Error" timestamp="2025-09-26T16:52:44.1136831-04:00">
+        <Text>The active test run was aborted. Reason: Test host process crashed</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>
