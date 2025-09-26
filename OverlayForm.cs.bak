@@ -1,0 +1,779 @@
+using Nefarius.ViGEm.Client.Targets.Xbox360;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Microsoft.Win32;
+using System.Runtime.InteropServices;
+
+namespace WootMouseRemap
+{
+    public sealed class OverlayForm : Form
+    {
+        private readonly Xbox360ControllerWrapper _pad;
+        private readonly RawInput _raw;
+        private readonly RawInputMsgWindow _msgWin;
+
+        private readonly Telemetry _tele = new();
+        private readonly ProfileManager _profiles = new();
+        private readonly StickMapper _mapper = new();
+        private readonly InputRouter _router;
+        private readonly MacroEngine _macros;
+        private readonly XInputPassthrough _xpass;
+
+        private readonly System.Windows.Forms.Timer _uiTimer = new() { Interval = 50 };
+        private readonly System.Windows.Forms.Timer _submitTimer = new() { Interval = 5 };
+
+        private InputMode _mode = InputMode.ControllerOutput;
+        private bool _dUp, _dDown, _dLeft, _dRight;
+            private bool _overlayKeyPhysicalDown;
+            private DateTime _lastOverlayToggle = DateTime.MinValue;
+
+            private bool _modCtrlDown, _modShiftDown, _modAltDown;
+
+        // UI
+        private readonly TabControl _tabs = new() { Dock = DockStyle.Fill };
+        private readonly InputVisualizerControl _viz = new() { Dock = DockStyle.Fill };
+        private readonly CheckBox _xinputEnable = new() { Text = "Controller Passthrough (XInput)" };
+        private readonly NumericUpDown _xinputIndex = new() { Minimum = 0, Maximum = 3, Value = 0, Width = 60 };
+        private readonly Label _status = new() { AutoSize = true, Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold) };
+        // The toggle mode button text now reflects both the F8 keyboard shortcut and middle mouse click
+        private readonly Button _toggleMode = new() { Text = "Toggle Mode (F8/Middle)" };
+        private readonly CheckBox _suppressChk = new() { Text = "Suppress OS Input (no dual input)" };
+        private readonly Label _overlayHotkeyLbl = new() { AutoSize = true };
+        private readonly Button _overlayHotkeyBtn = new() { Text = "Set Overlay Toggle Key" };
+        private bool _capturingOverlayKey = false;
+        private int _overlayToggleVk = 0xDC; // default '\\'
+        private uint _overlayHotkeyMods = 0; // default set later to Ctrl
+        private readonly Button _figStart = new() { Text = "Figure-8 Start" };
+        private readonly Button _figStop = new() { Text = "Figure-8 Stop" };
+        private readonly Button _autoTune = new() { Text = "Auto-Tune (5s)" };
+        private readonly NotifyIcon _tray = new() { Visible = true, Text = "WootMouseRemap", Icon = SystemIcons.Application };
+
+        // Global hotkey IDs
+        private const int HOTKEY_TOGGLE_MODE = 1;        // F8 (already)
+        private const int HOTKEY_TOGGLE_SUPPRESS = 2;     // Ctrl+F9
+        private const int HOTKEY_TOGGLE_OVERLAY = 3;      // (remappable, default Ctrl+'\')
+        private const int HOTKEY_PANIC = 4;               // Pause/Break
+        private int _overlayHotkeyRegisteredVk = 0;
+
+        // MOD_* for RegisterHotKey
+        private const uint MOD_ALT = 0x0001;
+        private const uint MOD_CONTROL = 0x0002;
+        private const uint MOD_SHIFT = 0x0004;
+        private const uint MOD_WIN = 0x0008;
+
+        // === Win32 interop (single block) ===
+        private const int GWL_EXSTYLE = -20;
+        private const int WS_EX_TRANSPARENT = 0x00000020;
+        private const int WS_EX_LAYERED = 0x00080000;
+
+        [DllImport("user32.dll")] private static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, int vk);
+        [DllImport("user32.dll")] private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+        [DllImport("user32.dll")] private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [DllImport("user32.dll")] private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        private CancellationTokenSource? _figCts, _tuneCts;
+
+        // Curves
+        private readonly NumericUpDown nSens = new() { Minimum = 1, Maximum = 200, Value = 35, DecimalPlaces = 0 };
+        private readonly NumericUpDown nExpo = new() { Minimum = 0, Maximum = 100, Value = 60, DecimalPlaces = 0 };
+        private readonly NumericUpDown nADZ  = new() { Minimum = 0, Maximum = 30,  Value = 5,  DecimalPlaces = 0 };
+        private readonly NumericUpDown nEMA  = new() { Minimum = 0, Maximum = 100, Value = 35, DecimalPlaces = 0 };
+        private readonly NumericUpDown nVel  = new() { Minimum = 0, Maximum = 100, Value = 0,  DecimalPlaces = 0 };
+        private readonly NumericUpDown nJit  = new() { Minimum = 0, Maximum = 50,  Value = 0,  DecimalPlaces = 0 };
+        private readonly NumericUpDown nSX   = new() { Minimum = 10, Maximum = 300, Value = 100, DecimalPlaces = 0 };
+        private readonly NumericUpDown nSY   = new() { Minimum = 10, Maximum = 300, Value = 100, DecimalPlaces = 0 };
+
+        // Mapping grids
+        private readonly DataGridView gridKeys = new() { Dock = DockStyle.Fill, AutoGenerateColumns = false, AllowUserToAddRows = false };
+        private readonly DataGridView gridMouse = new() { Dock = DockStyle.Fill, AutoGenerateColumns = false, AllowUserToAddRows = false };
+        private bool _capturing;
+        private string _captureTarget = ""; // "K:<vk>" or "M:<button>"
+
+        // Profiles
+        private readonly ListBox lstProfiles = new() { Dock = DockStyle.Left, Width = 220 };
+        private readonly Button btnLoad = new() { Text = "Load" };
+        private readonly Button btnNew = new() { Text = "New" };
+        private readonly Button btnClone = new() { Text = "Clone" };
+        private readonly Button btnDelete = new() { Text = "Delete" };
+        private readonly Button btnSave = new() { Text = "Save" };
+
+        public OverlayForm(Xbox360ControllerWrapper pad, RawInput raw, RawInputMsgWindow msgWin)
+        {
+            _pad = pad; _raw = raw; _msgWin = msgWin;
+            _macros = new MacroEngine(_pad);
+            _xpass = new XInputPassthrough(_pad);
+
+            Text = "WootMouseRemap";
+            Width = 980; Height = 640;
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false; TopMost = true; Opacity = 0.78;
+
+            _raw.Register();
+            _router = new InputRouter(_raw);
+
+            // events
+            _router.OnKey += OnKey;
+            _router.OnMouseButton += OnMouseButton;
+            _router.OnMouseMove += OnMouseMove;
+            _router.OnWheel += OnWheel;
+
+            _pad.StatusChanged += Pad_StatusChanged;
+            _uiTimer.Tick += (_, __) => { UpdateStatus(); UpdateVisualizer(); _tele.ResetMove(); };
+            _uiTimer.Start();
+            _submitTimer.Tick += (_, __) => _pad.Submit();
+            _submitTimer.Start();
+
+            // hotkeys
+            RegisterHotKey(Handle, HOTKEY_TOGGLE_MODE, 0, (int)Keys.F8);
+            RegisterHotKey(Handle, HOTKEY_TOGGLE_SUPPRESS, MOD_CONTROL, (int)Keys.F9);
+            RegisterHotKey(Handle, HOTKEY_PANIC, 0, (int)Keys.Pause);
+            _overlayHotkeyMods = 0; // default to Ctrl
+            RebindOverlayHotkeyFromProfile();
+                if (_overlayHotkeyRegisteredVk == 0) { _overlayHotkeyMods = 0; RegisterOverlayHotkey(0xDC); }
+
+            // tray
+            var cm = new ContextMenuStrip();
+            // Update context menu text to reflect that middle mouse can also toggle the mode
+            _ = cm.Items.Add("Toggle Mode (F8/Middle)", null, (_, __) => ToggleMode());
+            _ = cm.Items.Add("OS Suppression (Ctrl+F9)", null, (_, __) => ToggleSuppress());
+            _ = cm.Items.Add("Show/Hide Overlay", null, (_, __) => ToggleOverlayVisible());
+            cm.Items.Add(new ToolStripSeparator());
+            var mStartWithWindows = new ToolStripMenuItem("Start with Windows") { Checked = IsStartupEnabled(), CheckOnClick = true };
+            mStartWithWindows.CheckedChanged += (_, __) => SetStartupEnabled(mStartWithWindows.Checked);
+            cm.Items.Add(mStartWithWindows);
+            cm.Items.Add(new ToolStripSeparator());
+            cm.Items.Add("Open Logs", null, (_, __) => System.Diagnostics.Process.Start("explorer.exe", "Logs"));
+            cm.Items.Add("Exit", null, (_, __) => Close());
+            _tray.ContextMenuStrip = cm;
+
+            BuildTabs();
+            Controls.Add(_tabs);
+
+            ApplyProfileToUI();
+            UpdateStatus();
+        }
+
+        
+            // ---------- Safe UI invoke to avoid handle races ----------
+            private void UiInvoke(Action a)
+            {
+                if (IsDisposed) return;
+                try
+                {
+                    if (InvokeRequired)
+                    {
+                        if (!IsHandleCreated) return;
+                        BeginInvoke(a);
+                    }
+                    else
+                    {
+                        a();
+                    }
+                }
+                catch { /* ignore during shutdown */ }
+            }
+
+            private void Pad_StatusChanged(bool ok) => UiInvoke(UpdateStatus);
+
+            // ===== UI Build =====
+            private void BuildTabs()
+// Removed duplicate BuildTabs declaration
+        {
+            // Dashboard
+            var tabDash = new TabPage("Dashboard");
+            _status.Location = new Point(16, 16);
+            _toggleMode.Location = new Point(16, 46); _toggleMode.Click += (_, __) => ToggleMode();
+            _suppressChk.Location = new Point(16, 80);
+            _suppressChk.CheckedChanged += (_, __) => LowLevelHooks.Suppress = _suppressChk.Checked;
+            _overlayHotkeyLbl.Location = new Point(16, 110);
+            _overlayHotkeyBtn.Location = new Point(260, 106);
+            _overlayHotkeyBtn.Click += (_, __) => { _capturingOverlayKey = true; _overlayHotkeyMods = 0; _overlayHotkeyLbl.Text = "Press a key (Ctrl+<key>)"; };
+            _figStart.Location = new Point(16, 170); _figStart.Click += async (_, __) => await StartFigure8();
+            _figStop.Location = new Point(140, 170); _figStop.Click += (_, __) => StopFigure8();
+                try { _pad.StatusChanged -= Pad_StatusChanged; } catch { }
+            _autoTune.Location = new Point(260, 170); _autoTune.Click += async (_, __) => await RunAutoTune(5);
+
+            tabDash.Controls.AddRange(new Control[] { _status, _toggleMode, _suppressChk, _overlayHotkeyLbl, _overlayHotkeyBtn, _xinputEnable, _xinputIndex, _figStart, _figStop, _autoTune });
+            _xinputEnable.Location = new Point(16, 140);
+            _xinputIndex.Location = new Point(260, 140);
+            _xinputEnable.CheckedChanged += (_, __) => { if (_xinputEnable.Checked) { _xpass.SetPlayerIndex((int)_xinputIndex.Value); _xpass.Start(); } else { _xpass.Stop(); } };
+            _xinputIndex.ValueChanged += (_, __) => _xpass.SetPlayerIndex((int)_xinputIndex.Value);
+            _tabs.TabPages.Add(tabDash);
+
+            // Curves
+            var tabCurves = new TabPage("Curves");
+            int y = 20;
+            AddPair(tabCurves, "Sensitivity (x/100)", nSens, ref y);
+            AddPair(tabCurves, "Expo (x/100)",         nExpo, ref y);
+            AddPair(tabCurves, "AntiDeadzone (x/100)", nADZ,  ref y);
+            AddPair(tabCurves, "EMA Alpha (x/100)",    nEMA,  ref y);
+            AddPair(tabCurves, "Velocity Gain (x/100)",nVel,  ref y);
+            AddPair(tabCurves, "Jitter Floor (x/100)", nJit,  ref y);
+            AddPair(tabCurves, "Scale X (x/100)",      nSX,   ref y);
+            AddPair(tabCurves, "Scale Y (x/100)",      nSY,   ref y);
+
+            foreach (var n in new[] { nSens, nExpo, nADZ, nEMA, nVel, nJit, nSX, nSY })
+                n.ValueChanged += (_, __) => ApplyCurvesFromUI();
+
+            _tabs.TabPages.Add(tabCurves);
+
+            // Mappings
+            var tabMap = new TabPage("Mappings");
+            var split = new SplitContainer { Dock = DockStyle.Fill, Orientation = Orientation.Horizontal, SplitterDistance = 280 };
+            tabMap.Controls.Add(split);
+
+            BuildKeyGrid(); BuildMouseGrid();
+            split.Panel1.Controls.Add(gridKeys);
+            split.Panel2.Controls.Add(gridMouse);
+            _tabs.TabPages.Add(tabMap);
+
+            // Profiles
+            var tabProf = new TabPage("Profiles");
+            lstProfiles.Items.AddRange(_profiles.ListProfiles().ToArray());
+            lstProfiles.SelectedIndexChanged += (_, __) => { /* preview */ };
+            btnLoad.Click += (_, __) => { if (lstProfiles.SelectedItem is string p) { _profiles.Load(p); ApplyProfileToUI(); } };
+            btnNew.Click += (_, __) => { var path = _profiles.Create("profile"); lstProfiles.Items.Add(path); };
+            btnClone.Click += (_, __) => { var path = _profiles.CloneCurrent("clone"); if (!lstProfiles.Items.Contains(path)) lstProfiles.Items.Add(path); };
+            btnDelete.Click += (_, __) => { if (lstProfiles.SelectedItem is string p) { _profiles.Delete(p); lstProfiles.Items.Remove(p); } };
+            btnSave.Click += (_, __) => { PullUIToProfile(); _profiles.Save(); };
+
+            btnLoad.Location = new Point(240, 20);
+            btnNew.Location = new Point(240, 60);
+            btnClone.Location = new Point(240, 100);
+            btnDelete.Location = new Point(240, 140);
+            btnSave.Location = new Point(240, 200);
+
+            tabProf.Controls.Add(lstProfiles);
+            tabProf.Controls.AddRange(new Control[] { btnLoad, btnNew, btnClone, btnDelete, btnSave });
+            _tabs.TabPages.Add(tabProf);
+
+            // Visualizer
+            var tabViz = new TabPage("Visualizer");
+            tabViz.Controls.Add(_viz);
+            _tabs.TabPages.Add(tabViz);
+        }
+
+        private static void AddPair(TabPage tab, string label, Control input, ref int y)
+        {
+            var l = new Label { Text = label, Location = new Point(16, y + 4), AutoSize = true };
+            input.Location = new Point(220, y); input.Width = 80;
+            tab.Controls.Add(l); tab.Controls.Add(input);
+            y += 36;
+        }
+
+        private void BuildKeyGrid()
+        {
+            gridKeys.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "VK (hex)", DataPropertyName = "KeyHex", Width = 80 });
+            gridKeys.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Preview", DataPropertyName = "KeyName", Width = 120 });
+            var colC = new DataGridViewComboBoxColumn { HeaderText = "Xbox Control", DataPropertyName = "Control", DataSource = Enum.GetValues(typeof(Xbox360Control)) };
+            gridKeys.Columns.Add(colC);
+            gridKeys.Columns.Add(new DataGridViewButtonColumn { HeaderText = "Rebind", Text = "Bind", UseColumnTextForButtonValue = true, Width = 80 });
+            gridKeys.CellClick += (s, e) =>
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == 3)
+                {
+                    var vk = ((KeyRow)gridKeys.Rows[e.RowIndex].DataBoundItem).Vk;
+                    _capturing = true; _captureTarget = $"K:{vk}";
+                    gridKeys.Rows[e.RowIndex].Cells[3].Value = "Press key…";
+                }
+            };
+        }
+
+        private void BuildMouseGrid()
+        {
+            gridMouse.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Mouse", DataPropertyName = "ButtonName", Width = 120 });
+            var colC = new DataGridViewComboBoxColumn { HeaderText = "Xbox Control", DataPropertyName = "Control", DataSource = Enum.GetValues(typeof(Xbox360Control)) };
+            gridMouse.Columns.Add(colC);
+            gridMouse.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Rapid Hz", DataPropertyName = "RapidHz", Width = 80 });
+            gridMouse.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Burst", DataPropertyName = "Burst", Width = 60 });
+            gridMouse.CellEndEdit += (_, __) => PullUIToProfile();
+        }
+
+        private static bool IsWASD(int vk)
+        {
+            return vk == (int)Keys.W || vk == (int)Keys.A || vk == (int)Keys.S || vk == (int)Keys.D;
+        }
+
+        private void OnKey(int vk, bool down)
+        {// --- suppression-proof overlay hotkey: detect via raw input before any mapping ---
+// Track modifier state
+if (vk == (int)Keys.ControlKey || vk == (int)Keys.LControlKey || vk == (int)Keys.RControlKey) _modCtrlDown = down;
+if (vk == (int)Keys.ShiftKey   || vk == (int)Keys.LShiftKey   || vk == (int)Keys.RShiftKey)   _modShiftDown = down;
+if (vk == (int)Keys.Menu       || vk == (int)Keys.LMenu       || vk == (int)Keys.RMenu)       _modAltDown = down;
+
+bool needCtrl  = (_overlayHotkeyMods & MOD_CONTROL) != 0;
+bool needShift = (_overlayHotkeyMods & MOD_SHIFT)   != 0;
+bool needAlt   = (_overlayHotkeyMods & MOD_ALT)     != 0;
+
+// Edge-triggered to avoid auto-repeat storms
+if (vk == _overlayToggleVk)
+{
+    if (!down) _overlayKeyPhysicalDown = false;
+    if (down && !_overlayKeyPhysicalDown &&
+        (!needCtrl  || _modCtrlDown) &&
+        (!needShift || _modShiftDown) &&
+        (!needAlt   || _modAltDown))
+    {
+        _overlayKeyPhysicalDown = true;
+        if (ShouldToggle()) { ToggleOverlayVisible(); }
+                        _overlayKeyPhysicalDown = FalseReturn();
+                        return;
+    }
+}
+if (_capturing)
+            {
+                if (_captureTarget.StartsWith("K:"))
+                {
+                    var row = gridKeys.SelectedRows.Count > 0 ? gridKeys.SelectedRows[0] : null;
+                    if (row != null)
+                    {
+                        row.Cells[0].Value = $"0x{vk:X2}";
+                        row.Cells[1].Value = ((Keys)vk).ToString();
+                        ((KeyRow)row.DataBoundItem).Vk = vk;
+                        PullUIToProfile();
+                    }
+                    _capturing = false; _captureTarget = "";
+                    return;
+                }
+            }
+
+            _mapper.UpdateKey(vk, down);
+
+            // Intercept WASD -> Left Stick if enabled
+            if (_profiles.Current.WasdToLeftStick && IsWASD(vk))
+            {
+                if (_mode == InputMode.ControllerOutput)
+                {
+                    var (lx, ly) = _mapper.WasdToLeftStick();
+                    _pad.SetLeftStick(lx, ly);
+                }
+                return;
+            }
+
+            if (_mode != InputMode.ControllerOutput) return;
+
+            if (_profiles.Current.KeyMap.TryGetValue(vk, out var control))
+            {
+                if (ControllerKeyMapManager.TryGetButton(control, out var btn))
+                {
+                    if (down && TryGetRapid(control, out var rf)) _macros.StartRapid(btn, rf.RateHz, rf.Burst);
+                    else if (!down) _macros.StopRapid(btn);
+                    _pad.SetButton(btn, down);
+                    return;
+                }
+
+                switch (control)
+                {
+                    case Xbox360Control.LeftTrigger:  _pad.SetTrigger(false, down ? (byte)255 : (byte)0); break;
+                    case Xbox360Control.RightTrigger: _pad.SetTrigger(true,  down ? (byte)255 : (byte)0); break;
+                    case Xbox360Control.DpadUp:    _dUp = down; break;
+                    case Xbox360Control.DpadDown:  _dDown = down; break;
+                    case Xbox360Control.DpadLeft:  _dLeft = down; break;
+                    case Xbox360Control.DpadRight: _dRight = down; break;
+                }
+                _pad.SetDpad(_dUp, _dDown, _dLeft, _dRight);
+            }
+        }
+
+        private void OnMouseButton(MouseInput b, bool down)
+        {
+            // If we are in capture mode for mouse buttons, ignore toggling logic so the binding can be captured
+            if (_capturing && _captureTarget.StartsWith("M:")) { /* binding via grid */ return; }
+
+            // Allow toggling the current input mode using the middle mouse button
+            if (b == MouseInput.Middle && down)
+            {
+                ToggleMode();
+                return;
+            }
+
+            // Only map mouse buttons to controller output when in controller-output mode
+            if (_mode != InputMode.ControllerOutput) return;
+
+            if (_profiles.Current.MouseMap.TryGetValue(b, out var control))
+            {
+                if (ControllerKeyMapManager.TryGetButton(control, out var btn))
+                {
+                    if (down && TryGetRapid(control, out var rf)) _macros.StartRapid(btn, rf.RateHz, rf.Burst);
+                    else if (!down) _macros.StopRapid(btn);
+                    _pad.SetButton(btn, down);
+                    return;
+                }
+
+                if (control == Xbox360Control.LeftTrigger)  _pad.SetTrigger(false, down ? (byte)255 : (byte)0);
+                if (control == Xbox360Control.RightTrigger) _pad.SetTrigger(true,  down ? (byte)255 : (byte)0);
+                if (control == Xbox360Control.RightStick)   _pad.SetButton(Xbox360Button.RightThumb, down);
+            }
+        }
+
+        private void OnMouseMove(int dx, int dy)
+        {
+            _tele.RawDx += dx; _tele.RawDy += dy;
+            if (_mode != InputMode.ControllerOutput) return;
+
+            var (sx, sy) = _mapper.MouseToRightStick(dx, dy);
+            _pad.SetRightStick(sx, sy);
+
+            var (lx, ly) = _mapper.WasdToLeftStick();
+            _pad.SetLeftStick(lx, ly);
+
+            _tele.StickRX = sx; _tele.StickRY = sy;
+        }
+
+        private void OnWheel(int delta)
+        {
+            if (_mode != InputMode.ControllerOutput) return;
+
+            if (delta > 0 && _profiles.Current.MouseMap.TryGetValue(MouseInput.ScrollUp, out var cu))
+            {
+                if (ControllerKeyMapManager.TryGetButton(cu, out var btn)) { _pad.SetButton(btn, true); _pad.SetButton(btn, false); }
+            }
+            else if (delta < 0 && _profiles.Current.MouseMap.TryGetValue(MouseInput.ScrollDown, out var cd))
+            {
+                if (ControllerKeyMapManager.TryGetButton(cd, out var btn)) { _pad.SetButton(btn, true); _pad.SetButton(btn, false); }
+            }
+        }
+
+        private void UpdateVisualizer()
+        {
+            var s = _pad.GetSnapshot();
+            _viz.LX = s.LX; _viz.LY = s.LY; _viz.RX = s.RX; _viz.RY = s.RY;
+            _viz.LT = s.LT; _viz.RT = s.RT;
+            _viz.BtnA = s.A; _viz.BtnB = s.B; _viz.BtnX = s.X; _viz.BtnY = s.Y;
+            _viz.LB = s.LB; _viz.RB = s.RB; _viz.Back = s.Back; _viz.Start = s.Start; _viz.L3 = s.L3; _viz.R3 = s.R3;
+            _viz.DUp = s.DUp; _viz.DDown = s.DDown; _viz.DLeft = s.DLeft; _viz.DRight = s.DRight;
+            _viz.Invalidate();
+        }
+
+        private bool TryGetRapid(Xbox360Control control, out RapidFireConfig cfg)
+            => _profiles.Current.RapidFire.TryGetValue(control, out cfg!);
+
+        private async Task StartFigure8()
+        {
+            StopFigure8();
+                try { _pad.StatusChanged -= Pad_StatusChanged; } catch { }
+            _figCts = new CancellationTokenSource();
+            var fig = new FigureEightDriver();
+            await Task.Run(async () =>
+            {
+                var sw = System.Diagnostics.Stopwatch.StartNew();
+                while (!_figCts.IsCancellationRequested)
+                {
+                    double t = sw.Elapsed.TotalSeconds;
+                    var (dx, dy) = fig.At(t);
+                    var (sx, sy) = _mapper.MouseToRightStick(dx, dy);
+                    _pad.SetRightStick(sx, sy);
+                    await Task.Delay(5, _figCts.Token);
+                }
+            }, _figCts.Token);
+        }
+
+        private void StopFigure8()
+        {
+            try { _figCts?.Cancel(); _figCts?.Dispose(); } catch { }
+            _figCts = null;
+        }
+
+        private async Task RunAutoTune(int seconds)
+        {
+            _autoTune.Enabled = false;
+            _tuneCts = new CancellationTokenSource();
+            try
+            {
+                var tuner = new AutoTuner();
+                var res = await tuner.RunAsync(_mapper.Curve, seconds, _tuneCts.Token);
+                _mapper.Curve.Sensitivity = res.Sens;
+                _mapper.Curve.Expo = res.Expo;
+                _mapper.Curve.AntiDeadzone = res.ADZ;
+                ApplyCurvesToUI();
+                PullUIToProfile(); _profiles.Save();
+                MessageBox.Show($"Auto-tune done.\nSens={res.Sens:F2} Expo={res.Expo:F2} ADZ={res.ADZ:F2}", "Auto-Tune");
+            }
+            catch (OperationCanceledException) { }
+            catch (Exception ex) { Logger.Error("AutoTune failed", ex); }
+            finally { _autoTune.Enabled = true; _tuneCts?.Dispose(); _tuneCts = null; }
+        }
+
+        private void ToggleMode()
+        {
+            // Switch between controller output and mouse/keyboard modes
+            var newMode = _mode == InputMode.ControllerOutput ? InputMode.MouseKeyboard : InputMode.ControllerOutput;
+            _mode = newMode;
+
+            // When entering mouse/keyboard mode, reset controller output and ensure OS input is not suppressed
+            if (_mode == InputMode.MouseKeyboard)
+            {
+                _pad.ResetAll();
+                LowLevelHooks.Suppress = false;
+                _suppressChk.Checked = false;
+            }
+            else
+            {
+                // When entering controller output mode, suppress OS input so there is no dual input
+                LowLevelHooks.Suppress = true;
+                _suppressChk.Checked = true;
+            }
+
+            UpdateStatus();
+        }
+
+        private void ToggleSuppress()
+        {
+            LowLevelHooks.Suppress = !LowLevelHooks.Suppress;
+            _suppressChk.Checked = LowLevelHooks.Suppress;
+            UpdateStatus();
+            try
+            {
+                _tray.BalloonTipTitle = "WootMouseRemap";
+                _tray.BalloonTipText = $"OS Suppression {(LowLevelHooks.Suppress ? "ON" : "OFF")}";
+                _tray.ShowBalloonTip(1000);
+            } catch { }
+        }
+
+        private void ToggleOverlayVisible()
+        {
+            if (Visible)
+            {
+                ShowInTaskbar = false;
+                Hide();
+                _tray.Text = "WootMouseRemap (Hidden)";
+            }
+            else
+            {
+                Show();
+                ShowInTaskbar = true;
+                Activate();
+                _tray.Text = "WootMouseRemap";
+            }
+        }
+
+        private static bool IsStartupEnabled()
+        {
+            using var k = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", false);
+            return k?.GetValue("WootMouseRemap") is string s && !string.IsNullOrWhiteSpace(s);
+        }
+        private static void SetStartupEnabled(bool enabled)
+        {
+            using var k = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            if (k == null) return;
+            if (enabled) k.SetValue("WootMouseRemap", Application.ExecutablePath);
+            else k.DeleteValue("WootMouseRemap", false);
+        }
+
+        private void UpdateStatus()
+        {
+            _tele.Suppressing = LowLevelHooks.Suppress;
+            _tele.ViGEmConnected = _pad.IsConnected;
+            _tele.ProfileName = _profiles.Current.Name;
+
+            _status.Text = $"Mode: {_mode} | ViGEm: {(_pad.IsConnected ? "OK" : "Not Connected")} | " +
+                           $"Suppression: {(LowLevelHooks.Suppress ? "ON" : "OFF")} | " +
+                           $"dx/dy: {_tele.RawDx}/{_tele.RawDy} | RX/RY: {_tele.StickRX}/{_tele.StickRY} | Profile: {_tele.ProfileName}";
+            _tray.Text = $"WootMouseRemap - {_mode}";
+        }
+
+        private void ApplyCurvesFromUI()
+        {
+            var c = _mapper.Curve;
+            c.Sensitivity = (float)nSens.Value / 100f;
+            c.Expo        = (float)nExpo.Value / 100f;
+            c.AntiDeadzone= (float)nADZ.Value  / 100f;
+            c.EmaAlpha    = (float)nEMA.Value  / 100f;
+            c.VelocityGain= (float)nVel.Value  / 100f;
+            c.JitterFloor = (float)nJit.Value  / 100f;
+            c.ScaleX      = (float)nSX.Value   / 100f;
+            c.ScaleY      = (float)nSY.Value   / 100f;
+            PullUIToProfile();
+        }
+
+        private void ApplyCurvesToUI()
+        {
+            var c = _mapper.Curve;
+            nSens.Value = (decimal)(c.Sensitivity * 100);
+            nExpo.Value = (decimal)(c.Expo * 100);
+            nADZ.Value  = (decimal)(c.AntiDeadzone * 100);
+            nEMA.Value  = (decimal)(c.EmaAlpha * 100);
+            nVel.Value  = (decimal)(c.VelocityGain * 100);
+            nJit.Value  = (decimal)(c.JitterFloor * 100);
+            nSX.Value   = (decimal)(c.ScaleX * 100);
+            nSY.Value   = (decimal)(c.ScaleY * 100);
+        }
+
+        private void ApplyProfileToUI()
+        {
+            // Curves
+            var p = _profiles.Current.Curves;
+            var c = _mapper.Curve;
+            c.Sensitivity = p.Sensitivity;
+            c.Expo = p.Expo;
+            c.AntiDeadzone = p.AntiDeadzone;
+            c.EmaAlpha = p.EmaAlpha;
+            c.VelocityGain = p.VelocityGain;
+            c.JitterFloor = p.JitterFloor;
+            c.ScaleX = p.ScaleX;
+            c.ScaleY = p.ScaleY;
+            ApplyCurvesToUI();
+
+            // Grids
+            var keyRows = _profiles.Current.KeyMap
+                .Select(kv => new KeyRow { Vk = kv.Key, KeyHex = $"0x{kv.Key:X2}", KeyName = ((Keys)kv.Key).ToString(), Control = kv.Value })
+                .OrderBy(r => r.KeyHex).ToList();
+            gridKeys.DataSource = keyRows;
+
+            var mouseRows = _profiles.Current.MouseMap
+                .Select(kv => new MouseRow
+                {
+                    Button = kv.Key, ButtonName = kv.Key.ToString(),
+                    Control = kv.Value,
+                    RapidHz = _profiles.Current.RapidFire.TryGetValue(kv.Value, out var rf) ? rf.RateHz : 0,
+                    Burst = _profiles.Current.RapidFire.TryGetValue(kv.Value, out var rf2) ? rf2.Burst : 0
+                })
+                .ToList();
+            gridMouse.DataSource = mouseRows;
+
+            // Profiles list refresh
+            lstProfiles.Items.Clear();
+            lstProfiles.Items.AddRange(_profiles.ListProfiles().ToArray());
+
+            // Overlay hotkey label
+            var vk = _profiles.Current.OverlayToggleVk != 0 ? _profiles.Current.OverlayToggleVk : 0xDC;
+            _overlayHotkeyLbl.Text = $"Overlay toggle: {( (_overlayHotkeyMods & MOD_CONTROL)!=0 ? "Ctrl+" : "" )}{( (_overlayHotkeyMods & MOD_SHIFT)!=0 ? "Shift+" : "" )}{( (_overlayHotkeyMods & MOD_ALT)!=0 ? "Alt+" : "" )}{(Keys)vk} (0x{vk:X2})";
+        }
+
+        private void PullUIToProfile()
+        {
+            var p = _profiles.Current;
+            // curves
+            p.Curves.Sensitivity = (float)nSens.Value / 100f;
+            p.Curves.Expo        = (float)nExpo.Value / 100f;
+            p.Curves.AntiDeadzone= (float)nADZ.Value  / 100f;
+            p.Curves.EmaAlpha    = (float)nEMA.Value  / 100f;
+            p.Curves.VelocityGain= (float)nVel.Value  / 100f;
+            p.Curves.JitterFloor = (float)nJit.Value  / 100f;
+            p.Curves.ScaleX      = (float)nSX.Value   / 100f;
+            p.Curves.ScaleY      = (float)nSY.Value   / 100f;
+
+            // key map
+            p.KeyMap = ((System.Collections.Generic.List<KeyRow>)gridKeys.DataSource).ToDictionary(r => r.Vk, r => r.Control);
+
+            // mouse map + rapid
+            p.MouseMap = ((System.Collections.Generic.List<MouseRow>)gridMouse.DataSource).ToDictionary(r => r.Button, r => r.Control);
+            p.RapidFire.Clear();
+            foreach (var r in (System.Collections.Generic.List<MouseRow>)gridMouse.DataSource)
+                if (r.RapidHz > 0 && ControllerKeyMapManager.TryGetButton(r.Control, out _))
+                    p.RapidFire[r.Control] = new RapidFireConfig { RateHz = r.RapidHz, Burst = r.Burst };
+        }
+
+        private bool ShouldToggle()
+{
+    var now = DateTime.UtcNow;
+    if ((now - _lastOverlayToggle).TotalMilliseconds < 250) return FalseReturn();
+    _lastOverlayToggle = now;
+    return true;
+}
+private bool FalseReturn() => false;
+private void RegisterOverlayHotkey(int vk)
+{
+    // Unregister any previously registered hotkey first
+    try { UnregisterHotKey(Handle, HOTKEY_TOGGLE_OVERLAY); } catch { }
+    _overlayHotkeyRegisteredVk = vk;
+    _overlayToggleVk = vk;
+    // Update the label to show the human-readable hotkey
+    _overlayHotkeyLbl.Text = $"Overlay toggle: {(((_overlayHotkeyMods & MOD_CONTROL) != 0) ? "Ctrl+" : "")}{(((_overlayHotkeyMods & MOD_SHIFT) != 0) ? "Shift+" : "")}{(((_overlayHotkeyMods & MOD_ALT) != 0) ? "Alt+" : "")}{(Keys)vk} (0x{vk:X2})";
+    // If no modifiers are set, rely on the raw input handler only (to avoid double-toggles)
+    if (_overlayHotkeyMods == 0)
+    {
+        return;
+    }
+    // Otherwise attempt to register a standard WM_HOTKEY
+    if (!RegisterHotKey(Handle, HOTKEY_TOGGLE_OVERLAY, _overlayHotkeyMods, vk))
+    {
+        // Fallback to Pause if registration fails
+        UnregisterHotKey(Handle, HOTKEY_TOGGLE_OVERLAY);
+        _overlayHotkeyMods = 0;
+        vk = (int)Keys.Pause;
+        RegisterHotKey(Handle, HOTKEY_TOGGLE_OVERLAY, _overlayHotkeyMods, vk);
+        _overlayHotkeyLbl.Text = "Overlay toggle: Pause (fallback)";
+    }
+}
+
+        private void RebindOverlayHotkeyFromProfile()
+        {
+            var vk = _profiles.Current.OverlayToggleVk;
+            if (vk == 0) vk = 0xDC;
+            RegisterOverlayHotkey(vk);
+        }
+
+        // ===== rows =====
+        private sealed class KeyRow
+        {
+            public int Vk { get; set; }
+            public string KeyHex { get; set; } = "";
+            public string KeyName { get; set; } = "";
+            public Xbox360Control Control { get; set; }
+        }
+        private sealed class MouseRow
+        {
+            public MouseInput Button { get; set; }
+            public string ButtonName { get; set; } = "";
+            public Xbox360Control Control { get; set; }
+            public double RapidHz { get; set; }
+            public int Burst { get; set; }
+        }
+
+        // ===== Win32 message pump & handle lifecycle =====
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_HOTKEY = 0x0312;
+            base.WndProc(ref m);
+            if (m.Msg == WM_HOTKEY)
+            {
+                int id = m.WParam.ToInt32();
+                if (id == HOTKEY_TOGGLE_MODE) ToggleMode();
+                else if (id == HOTKEY_TOGGLE_SUPPRESS) ToggleSuppress();
+                else if (id == HOTKEY_TOGGLE_OVERLAY) { if (_overlayHotkeyMods != 0 && ShouldToggle()) ToggleOverlayVisible(); }
+                else if (id == HOTKEY_PANIC) { _mode = InputMode.MouseKeyboard; LowLevelHooks.Suppress = false; _suppressChk.Checked = false; UpdateStatus(); _pad.ResetAll(); }
+            }
+        }
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            try { RegisterHotKey(Handle, HOTKEY_TOGGLE_MODE, 0, (int)Keys.F8); } catch { }
+            try { RegisterHotKey(Handle, HOTKEY_TOGGLE_SUPPRESS, MOD_CONTROL, (int)Keys.F9); } catch { }
+            try { RegisterHotKey(Handle, HOTKEY_PANIC, 0, (int)Keys.Pause); } catch { }
+            if (_overlayHotkeyRegisteredVk != 0 && _overlayHotkeyMods != 0)
+            {
+                try { RegisterHotKey(Handle, HOTKEY_TOGGLE_OVERLAY, _overlayHotkeyMods, _overlayHotkeyRegisteredVk); } catch { }
+            }
+        }
+
+        protected override void OnHandleDestroyed(EventArgs e)
+        {
+            try { UnregisterHotKey(Handle, HOTKEY_TOGGLE_MODE); } catch { }
+            try { UnregisterHotKey(Handle, HOTKEY_TOGGLE_SUPPRESS); } catch { }
+            try { UnregisterHotKey(Handle, HOTKEY_TOGGLE_OVERLAY); } catch { }
+            try { UnregisterHotKey(Handle, HOTKEY_PANIC); } catch { }
+            base.OnHandleDestroyed(e);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            _tray.Visible = false;
+            try { UnregisterHotKey(Handle, HOTKEY_TOGGLE_MODE); } catch { }
+            try { UnregisterHotKey(Handle, HOTKEY_TOGGLE_SUPPRESS); } catch { }
+            try { UnregisterHotKey(Handle, HOTKEY_TOGGLE_OVERLAY); } catch { }
+            try { UnregisterHotKey(Handle, HOTKEY_PANIC); } catch { }
+            StopFigure8();
+                try { _pad.StatusChanged -= Pad_StatusChanged; } catch { }
+            try { _macros.Dispose(); } catch { }
+            base.OnFormClosing(e);
+        }
+    }
+}

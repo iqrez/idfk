@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WootMouseRemap.UI", "WootMouseRemap.UI\WootMouseRemap.UI.csproj", "{D75306E4-7D08-4D46-8B22-376BE40294AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WootMouseRemap.Core", "WootMouseRemap.Core\WootMouseRemap.Core.csproj", "{C592E525-29DD-4D59-8492-99A8B6840DC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WootMouseRemap.Tests", "WootMouseRemap.Tests\WootMouseRemap.Tests.csproj", "{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Debug|x64.Build.0 = Debug|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Debug|x86.Build.0 = Debug|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Release|x64.ActiveCfg = Release|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Release|x64.Build.0 = Release|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Release|x86.ActiveCfg = Release|Any CPU
+		{D75306E4-7D08-4D46-8B22-376BE40294AF}.Release|x86.Build.0 = Release|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Debug|x64.Build.0 = Debug|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Debug|x86.Build.0 = Debug|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Release|x64.ActiveCfg = Release|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Release|x64.Build.0 = Release|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Release|x86.ActiveCfg = Release|Any CPU
+		{C592E525-29DD-4D59-8492-99A8B6840DC3}.Release|x86.Build.0 = Release|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Debug|x64.Build.0 = Debug|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Debug|x86.Build.0 = Debug|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Release|x64.ActiveCfg = Release|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Release|x64.Build.0 = Release|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Release|x86.ActiveCfg = Release|Any CPU
+		{2AB6DC43-F7C5-4107-9189-95CFBBC67F90}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

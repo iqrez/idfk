@@ -1,6 +1,6 @@
 {
   "Version": 2,
-  "Enabled": false,
+  "Enabled": true,
   "Strength": 0.4,
   "ActivationDelayMs": 50,
   "VerticalThreshold": 2,

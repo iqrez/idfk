@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Tests\**" />
+    <Compile Remove="UI\**" />
+    <Compile Remove="WootMouseRemap.Core\**" />
+    <Compile Remove="WootMouseRemap.UI\**" />
+    <Compile Remove="WootMouseRemap.Tests\**" />
+    <Compile Remove="ViGEmTest\**" />
+    <Compile Remove="vigem_test.cs" />
+    <Compile Remove="Program.cs" />
+    <Compile Remove="OverlayForm.cs" />
+    <Compile Remove="OverlayForm.resx" />
+    <EmbeddedResource Remove="OverlayForm.resx" />
+    <Compile Include="WootMouseRemap.Core\AntiRecoilViewModel.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Nefarius.ViGEm.Client" Version="1.21.256" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="System.Threading.Channels" Version="8.0.0" />
+  </ItemGroup>
+</Project>

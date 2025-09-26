@@ -1,0 +1,56 @@
+=== MODE DIAGNOSTIC REPORT ===
+Generated: 2025-09-22 11:47:57
+
+=== CURRENT MODE STATUS ===
+Current Mode: ControllerPassthrough
+Mode Service Status: Active
+
+=== CONTROLLER STATUS ===
+Virtual Controller Connected: True
+Virtual Controller Last Update: Working
+Virtual Controller State: LX=-3356, LY=-1869, RX=0, RY=0
+Physical Controller Detection: True
+Detector Auto Index: True
+Detector Status: Active
+
+=== XINPUT PASSTHROUGH STATUS ===
+Passthrough Running: True
+Passthrough Connected: True
+
+=== XINPUT CONTROLLER SCAN ===
+Controller 0: CONNECTED
+  Packet: 7
+  Buttons: 0x0000
+  Left Stick: (-3356, -1869)
+  Right Stick: (0, 0)
+  Triggers: L=0, R=0
+Controller 1: CONNECTED
+  Packet: 4326
+  Buttons: 0x0000
+  Left Stick: (3362, 3318)
+  Right Stick: (1068, 173)
+  Triggers: L=0, R=255
+Controller 2: NOT CONNECTED
+Controller 3: NOT CONNECTED
+
+=== ANTI-RECOIL STATUS ===
+Anti-Recoil Enabled: True
+Strength: 100%
+Threshold: 3
+Delay: 500ms
+Status Info: Standby (waiting for fire button)
+Is Active: False
+Pattern Count: 0
+
+=== SYSTEM INFORMATION ===
+OS: Microsoft Windows NT 10.0.26100.0
+64-bit Process: True
+Working Directory: V:\u\liii\bin\Debug\net8.0-windows
+Process Name: WootMouseRemap
+
+=== VIGEM DRIVER CHECK ===
+ViGEm Driver: AVAILABLE
+
+=== RECOMMENDATIONS ===
+
+=== END OF REPORT ===
