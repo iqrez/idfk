@@ -1,0 +1,13 @@
+{
+  "Version": 2,
+  "Enabled": false,
+  "Strength": 0.4,
+  "ActivationDelayMs": 50,
+  "VerticalThreshold": 2,
+  "HorizontalCompensation": 0,
+  "AdaptiveCompensation": false,
+  "MaxTickCompensation": 10,
+  "MaxTotalCompensation": 100,
+  "CooldownMs": 0,
+  "DecayPerMs": 0
+}
