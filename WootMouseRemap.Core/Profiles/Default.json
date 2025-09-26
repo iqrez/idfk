@@ -1,0 +1,34 @@
+{
+  "name": "Default",
+  "description": "Default keyboard/mouse to Xbox 360 controller mapping",
+  "keyboardMap": {
+    "87": "LeftStickUp",
+    "83": "LeftStickDown", 
+    "65": "LeftStickLeft",
+    "68": "LeftStickRight",
+    "32": "A",
+    "13": "Start",
+    "27": "Back",
+    "16": "LeftBumper",
+    "17": "RightBumper"
+  },
+  "mouseConfig": {
+    "enableMouseToRightStick": true,
+    "leftClickMapping": "RightTrigger",
+    "rightClickMapping": "LeftTrigger",
+    "middleClickMapping": "B",
+    "wheelSensitivity": 1
+  },
+  "curveSettings": {
+    "sensitivity": 0.35,
+    "expo": 0.6,
+    "antiDeadzone": 0.05,
+    "maxSpeed": 1.0,
+    "emaAlpha": 0.35,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "jitterFloor": 0.0
+  },
+  "preferredControllerIndex": 0,
+  "targetControllerType": "Xbox360"
+}

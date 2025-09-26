@@ -1,0 +1,12 @@
+V:\u\a\WootMouseRemap.Core\bin\Release\net8.0-windows\WootMouseRemap.Core.deps.json
+v:\u\a\WootMouseRemap.Core\bin\Release\net8.0-windows\WootMouseRemap.Core.dll
+v:\u\a\WootMouseRemap.Core\bin\Release\net8.0-windows\WootMouseRemap.Core.pdb
+v:\u\a\WootMouseRemap.Core\obj\Release\net8.0-windows\WootMouseRemap.Core.csproj.AssemblyReference.cache
+v:\u\a\WootMouseRemap.Core\obj\Release\net8.0-windows\WootMouseRemap.Core.GeneratedMSBuildEditorConfig.editorconfig
+v:\u\a\WootMouseRemap.Core\obj\Release\net8.0-windows\WootMouseRemap.Core.AssemblyInfoInputs.cache
+v:\u\a\WootMouseRemap.Core\obj\Release\net8.0-windows\WootMouseRemap.Core.AssemblyInfo.cs
+v:\u\a\WootMouseRemap.Core\obj\Release\net8.0-windows\WootMouseRemap.Core.csproj.CoreCompileInputs.cache
+v:\u\a\WootMouseRemap.Core\obj\Release\net8.0-windows\WootMouseRemap.Core.dll
+v:\u\a\WootMouseRemap.Core\obj\Release\net8.0-windows\refint\WootMouseRemap.Core.dll
+v:\u\a\WootMouseRemap.Core\obj\Release\net8.0-windows\WootMouseRemap.Core.pdb
+V:\u\a\WootMouseRemap.Core\obj\Release\net8.0-windows\ref\WootMouseRemap.Core.dll
